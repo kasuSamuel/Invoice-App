@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+
+:root {
+    /* Primary Colors */
+    --primary-color: #7C5DFA; 
+    --primary-light: #9277FF; 
+  
+    /* Secondary Colors */
+    --secondary-color: #1E2139; 
+    --secondary-dark: #252945; 
+  
+    /* Neutral Colors */
+    --grey-light: #DFE3FA; 
+    --grey-medium: #888EB0; 
+    --grey-dark: #7E88C3; 
+  
+    /* Base and Background Colors */
+    --base-black: #0C0E16; 
+    --dark-bg: #141625; 
+    --light-bg: #F8F8FB;
+  
+    /* Error Colors */
+    --error-color: #EC5757;
+    --error-light: #FF9797; 
+  }
+  
