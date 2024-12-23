@@ -1,0 +1,75 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 60%;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+.header .subtext {
+    color: #8a8a8a;
+    font-size: 14px;
+}
+
+.header .controls {
+    display: flex;
+    align-items: center;
+}
+
+.header .filter {
+    margin-right: 20px;
+    font-size: 14px;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.header .filter span {
+    margin-left: 5px;
+}
+
+.header .new-invoice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6c63ff;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.header .new-invoice:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 10px rgba(108, 99, 255, 0.5);
+}
+
+.header .new-invoice .icon {
+    background-color: #fff;
+    color: #6c63ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
