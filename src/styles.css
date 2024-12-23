@@ -30,6 +30,8 @@
     --error-light: #FF9797; 
 
     --white-color: #FFFFFF;
+    --light-text-color: #000;
+
 }
 
 * {
@@ -47,5 +49,20 @@ body {
 
 body[data-theme='dark'] {
   background-color: var(--dark-bg);
-  color: #fff;
+  color: var(--white-color);
 }
+
+body[data-theme="dark"] main .text p{
+  color: var(--grey-light);
+}
+body[data-theme="dark"] main .text p span{
+  color: var(--grey-light);
+}
+body[data-theme="dark"]  h2, body[data-theme="dark"] h1{
+  color: var(--white-color);
+}
+/* Apply the style when dark mode is enabled globally */
+body[data-theme="dark"] .container .header .controls .filter {
+  color: var(--grey-light);
+}
+

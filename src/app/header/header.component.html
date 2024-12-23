@@ -1,18 +1,17 @@
-
 <div class="container">
-<header class="header">
-    <div>
-        <h1>Invoices</h1>
-        <div class="subtext">No invoices</div>
-    </div>
-    <div class="controls">
-        <div class="filter">
-            Filter by status <span><img src="assets/images/icon-arrow-down.svg" alt=""></span>
+    <header class="header">
+        <div>
+    <app-headline [level]="1" [text]="'Invoices'" className="main-headline"></app-headline>
+            <div class="subtext">No invoices</div>
         </div>
-        <button class="new-invoice">
-            <div class="icon">+</div>
-            New Invoice
-        </button>
-    </div>
-</header>
+        <div class="controls">
+            <div class="filter">
+                Filter by status <span><app-icon [src]="'assets/images/icon-arrow-down.svg'"></app-icon> </span>
+            </div>
+            <button class="new-invoice">
+                <div class="icon">+</div>
+                New Invoice
+            </button>
+        </div>
+    </header>
 </div>

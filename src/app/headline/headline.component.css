@@ -1,0 +1,53 @@
+/* Default styles for all headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, sans-serif;
+    margin: 10px 0;
+    color: #333;
+    line-height: 1.2;
+  }
+  
+  /* Specific font sizes for each heading level */
+  h1 {
+    font-family: Spartan;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 35.84px;
+    letter-spacing: -1px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+      }
+  
+  h2 {
+    font-family: Spartan;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 22.4px;
+    letter-spacing: -0.625px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+      }
+  
+  h3 {
+    font-size: 1.75rem;
+  }
+  
+  h4 {
+    font-size: 1.5rem;
+  }
+  
+  h5 {
+    font-size: 1.25rem;
+  }
+  
+  h6 {
+    font-size: 1rem;
+  }
+  
+  /* Example of custom class */
+  .custom-headline {
+    color: #007bff;
+    font-weight: bold;
+  }
+  

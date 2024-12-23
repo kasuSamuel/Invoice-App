@@ -1,1 +1,10 @@
-<p>headline works!</p>
+<ng-container [ngSwitch]="level">
+    <h1 *ngSwitchCase="1" [ngClass]="className">{{ text }}</h1>
+    <h2 *ngSwitchCase="2" [ngClass]="className">{{ text }}</h2>
+    <h3 *ngSwitchCase="3" [ngClass]="className">{{ text }}</h3>
+    <h4 *ngSwitchCase="4" [ngClass]="className">{{ text }}</h4>
+    <h5 *ngSwitchCase="5" [ngClass]="className">{{ text }}</h5>
+    <h6 *ngSwitchCase="6" [ngClass]="className">{{ text }}</h6>
+    <!-- Default to h1 if no valid level is provided -->
+    <h1 *ngSwitchDefault [ngClass]="className">{{ text }}</h1>
+</ng-container>

@@ -1,9 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-// import { SideNavbarComponent } from './side-navbar/side-navbar.component';
-// import { HeaderComponent } from './header/header.component';
-// import { EmptyInvoicePageComponent } from './empty-invoice-page/empty-invoice-page.component';
-// import { CreateInvoiceFullFormPageComponent } from './create-invoice-full-form-page/create-invoice-full-form-page.component';
 import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
 import { HeadlineComponent } from './headline/headline.component';
 import { TextComponent } from './text/text.component';
@@ -19,6 +15,9 @@ import { InvoiceDetailPageComponent } from './invoice-detail-page/invoice-detail
 import { InvoiceSideDrawerComponent } from './invoice-side-drawer/invoice-side-drawer.component';
 import { InvoiceFilterComponent } from './invoice-filter/invoice-filter.component';
 import { SideNavbarComponent } from "./side-navbar/side-navbar.component";
+import { EmptyInvoicePageComponent } from "./empty-invoice-page/empty-invoice-page.component";
+import { HeaderComponent } from "./header/header.component";
+import { DataService } from './shared/data.service';
 
 @Component({
   selector: 'app-root',
@@ -39,15 +38,21 @@ import { SideNavbarComponent } from "./side-navbar/side-navbar.component";
     InvoiceDetailPageComponent,
     InvoiceSideDrawerComponent,
     InvoiceFilterComponent,
-    SideNavbarComponent
+    SideNavbarComponent,
+    EmptyInvoicePageComponent,
+    HeaderComponent,
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-  theme: string = 'light';
-  toggleTheme() {
-    this.theme = this.theme === 'light' ? 'dark' : 'light';
-    document.body.setAttribute('data-theme', this.theme); 
-  }
+export class AppComponent implements OnInit {
+
+  isDarkMode:  boolean = false;
+constructor(private dataService:DataService) {
+}
+
+ngOnInit(): void {
+  this.isDarkMode = this.dataService.getTheme() === 'dark';
+}
+
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IconComponent } from "../icon/icon.component";
 import { CommonModule } from '@angular/common';
+import { DataService } from '../shared/data.service';
 
 @Component({
   selector: 'app-theme-toggle',
@@ -12,31 +13,15 @@ import { CommonModule } from '@angular/common';
 export class ThemeToggleComponent implements OnInit {
   isDarkMode: boolean = false;
 
-  constructor() {}
+  constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      this.isDarkMode = true;
-      document.body.setAttribute('data-theme', 'dark');
-    } else {
-      this.isDarkMode = false;
-      document.body.removeAttribute('data-theme');
-    }
+    this.isDarkMode = this.dataService.getTheme() === 'dark';
   }
 
   toggleTheme(): void {
-    if (this.isDarkMode) {
-      // Switch to light mode
-      document.body.removeAttribute('data-theme');
-      localStorage.setItem('theme', 'light');
-    } else {
-      // Switch to dark mode
-      document.body.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
-    }
-
-    // Toggle the boolean flag
     this.isDarkMode = !this.isDarkMode;
+    const newTheme = this.isDarkMode ? 'dark' : 'light';
+    this.dataService.setTheme(newTheme);
   }
 }

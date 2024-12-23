@@ -1,12 +1,22 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from '../shared/data.service';
 
 @Component({
   selector: 'app-headline',
-  standalone: true,
-  imports: [],
   templateUrl: './headline.component.html',
-  styleUrl: './headline.component.css'
-})
-export class HeadlineComponent {
+  styleUrls: ['./headline.component.css'],
+  standalone: true,
+  imports: [CommonModule],})
+export class HeadlineComponent  implements OnInit  {
+  @Input() level: number = 1;  
+  @Input() text: string = '';  
+  @Input() className: string = ''; 
 
+
+    constructor(private dataService: DataService) {}
+  
+    ngOnInit(): void {
+      this.dataService.initTheme();
+    }
 }

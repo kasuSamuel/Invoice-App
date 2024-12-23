@@ -24,12 +24,3 @@ nav {
     height: 1px; 
     background: var(--grey-medium);
 }
-
-.profile img {
-    transition: filter 0.3s ease;
-    cursor: pointer;
-}
-
-.profile img:hover {
-    filter: brightness(1.5); 
-  }
