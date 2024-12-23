@@ -1,0 +1,103 @@
+
+.invoice-form-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    padding: 20px;
+    z-index: 2;
+
+  }
+  
+  .invoice{
+    padding: 20px;
+  }
+  
+  .form-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-section {
+    margin-bottom: 20px;
+    
+
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+    color: #5d5d72;
+    margin-bottom: 10px;
+  }
+  
+  label {
+    font-size: 0.9rem;
+    color: #666;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  input:focus, select:focus {
+    border-color: #8a2be2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
+  }
+  
+  /* Grid Styles */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  
+  /* Button Styles */
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .form-section-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-secondary {
+    background: #e9ecef;
+    color: #555;
+  }
+  
+  .btn-primary {
+    background: #5d5d72;
+    color: #fff;
+  }
+  
+  .btn-highlight {
+    background: #8a2be2;
+    color: #fff;
+  }
+  
+  .btn:hover {
+    opacity: 0.9;
+  }
+
