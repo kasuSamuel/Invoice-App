@@ -14,41 +14,40 @@ import { FilterComponent } from './filter/filter.component';
 import { InvoiceCardComponent } from './invoice-card/invoice-card.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DeleteCardComponent } from './delete-card/delete-card.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmptyPageComponent } from './empty-page/empty-page.component';
 import { InvoiceDetailPageComponent } from './invoice-detail-page/invoice-detail-page.component';
 import { InvoiceSideDrawerComponent } from './invoice-side-drawer/invoice-side-drawer.component';
 import { InvoiceFilterComponent } from './invoice-filter/invoice-filter.component';
+import { SideNavbarComponent } from "./side-navbar/side-navbar.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-      RouterOutlet, 
-      ThemeToggleComponent,
-      HeadlineComponent,
-      TextComponent,
-      IconComponent,
-      AvatarComponent,
-      BadgeComponent,
-      FilterComponent,
-      InvoiceCardComponent,
-      DialogComponent,
-      DeleteCardComponent,
-      DashboardComponent,
-      EmptyPageComponent,
-      InvoiceDetailPageComponent,
-      InvoiceSideDrawerComponent,
-      InvoiceFilterComponent
-    ],
+    RouterOutlet,
+    ThemeToggleComponent,
+    HeadlineComponent,
+    TextComponent,
+    IconComponent,
+    AvatarComponent,
+    BadgeComponent,
+    FilterComponent,
+    InvoiceCardComponent,
+    DialogComponent,
+    DeleteCardComponent,
+    EmptyPageComponent,
+    InvoiceDetailPageComponent,
+    InvoiceSideDrawerComponent,
+    InvoiceFilterComponent,
+    SideNavbarComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-
   theme: string = 'light';
-
   toggleTheme() {
     this.theme = this.theme === 'light' ? 'dark' : 'light';
+    document.body.setAttribute('data-theme', this.theme); 
   }
 }

@@ -44,3 +44,8 @@ body {
   font-family: 'Spartan', sans-serif;
   background-color: var(--light-bg);
 }
+
+body[data-theme='dark'] {
+  background-color: var(--dark-bg);
+  color: #fff;
+}
