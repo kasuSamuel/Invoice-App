@@ -28,6 +28,8 @@
     /* Error Colors */
     --error-color: #EC5757;
     --error-light: #FF9797; 
+
+    --white-color: #FFFFFF;
 }
 
 * {
