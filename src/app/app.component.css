@@ -8,12 +8,7 @@
 
 }
 
-.header {
-    width: 100%;
-    position: absolute;
-    top: 2rem;
-    } 
-    
+
     .main-content {
         position: absolute;
         right: 0;
@@ -24,3 +19,16 @@
 
     }
     
+    .header {
+        width: 100%;
+        position: absolute;
+        top: 2rem;
+        } 
+    
+        
+        .empty-invoice-page {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
