@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,8 +7,24 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   private themeKey: string = 'theme';
+  private sidebarVisibility = new BehaviorSubject<boolean>(false); // false means hidden
+  sidebarVisibility$ = this.sidebarVisibility.asObservable();
 
   constructor() {}
+
+
+  toggleSidebar() {
+    this.sidebarVisibility.next(!this.sidebarVisibility.value); // Toggle the visibility
+  }
+
+  showSidebar() {
+    this.sidebarVisibility.next(true); // Explicitly show the sidebar
+  }
+
+  hideSidebar() {
+    this.sidebarVisibility.next(false); // Explicitly hide the sidebar
+  }
+
 
   // Get the current theme (light/dark)
   getTheme(): string | null {

@@ -1,37 +1,41 @@
 @font-face {
-  font-family: 'Spartan';
-  src: url('assets/spartan/LeagueSpartan-Black.ttf') format('truetype'),
-       url('assets/spartan/LeagueSpartan-Regular.ttf') format('opentype');
+  font-family: "Spartan";
+  src: url("assets/spartan/LeagueSpartan-Black.ttf") format("truetype"),
+    url("assets/spartan/LeagueSpartan-Regular.ttf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 :root {
-    /* Primary Colors */
-    --primary-color: #7C5DFA; 
-    --primary-light: #9277FF; 
-  
-    /* Secondary Colors */
-    --secondary-color: #1E2139; 
-    --secondary-dark: #252945; 
-  
-    /* Neutral Colors */
-    --grey-light: #DFE3FA; 
-    --grey-medium: #888EB0; 
-    --grey-dark: #7E88C3; 
-  
-    /* Base and Background Colors */
-    --base-black: #0C0E16; 
-    --dark-bg: #141625; 
-    --light-bg: #F8F8FB;
-  
-    /* Error Colors */
-    --error-color: #EC5757;
-    --error-light: #FF9797; 
+  /* Primary Colors */
+  --primary-color: #7c5dfa;
+  --primary-light: #9277ff;
+  --primary-dark: #DFE3FA;
 
-    --white-color: #FFFFFF;
-    --light-text-color: #000;
+  /* Secondary Colors */
+  --secondary-color: #1e2139;
+  --secondary-dark: #252945;
 
+  /* Neutral Colors */
+  --grey-light: #dfe3fa;
+  --grey-medium: #888eb0;
+  --grey-dark: #7e88c3;
+  --grey-dark-btn: #373b53;
+
+  /* Base and Background Colors */
+  --base-black: #0c0e16;
+  --dark-bg: #141625;
+  --light-bg: #f8f8fb;
+
+  /* Error Colors */
+  --error-color: #ec5757;
+  --error-light: #ff9797;
+
+  --white-color: #ffffff;
+  --light-text-color: #000;
+  --purple-text-color: #7e88c3;
+  --white-grey-color: #f9fafe;
+  --dark-input-color: #252945;
 }
 
 * {
@@ -43,26 +47,147 @@
 body {
   width: 100%;
   height: 100vh;
-  font-family: 'Spartan', sans-serif;
+  font-family: "Spartan", sans-serif;
   background-color: var(--light-bg);
 }
 
-body[data-theme='dark'] {
+body[data-theme="dark"] {
   background-color: var(--dark-bg);
   color: var(--white-color);
 }
 
-body[data-theme="dark"] main .text p{
+body[data-theme="dark"] main .text p {
   color: var(--grey-light);
 }
-body[data-theme="dark"] main .text p span{
+body[data-theme="dark"] main .text p span {
   color: var(--grey-light);
 }
-body[data-theme="dark"]  h2, body[data-theme="dark"] h1{
+body[data-theme="dark"] h2,
+body[data-theme="dark"] h1,
+body[data-theme="dark"] .invoice-form-container h1  {
   color: var(--white-color);
 }
-/* Apply the style when dark mode is enabled globally */
 body[data-theme="dark"] .container .header .controls .filter {
   color: var(--grey-light);
 }
+body[data-theme="dark"] .invoice-form-container{
+  background-color: var(--dark-bg);
+  color: var(--white-color);
+}
+body[data-theme="dark"] .invoice-form-container input , body[data-theme="dark"] .invoice-form-container select{
+  background-color: var(--dark-input-color);
+  color: var(--white-color);
+  border-color: var(--dark-input-color);
+}
 
+body[data-theme="dark"] .invoice-form-container .invoice .item-list table thead th{
+  color: var(--white-color);
+}
+
+body[data-theme="dark"] .invoice-form-container .invoice .item-list .add-item {
+  background-color: var(--dark-input-color);
+  color: var(--white-color);
+}
+
+body[data-theme="dark"] .invoice-form-container label  {
+  color: var(--primary-dark);
+}
+.header .new-invoice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.header .new-invoice:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 10px rgba(108, 99, 255, 0.5);
+  background-color: var(--primary-light);
+}
+
+.header .new-invoice .icon {
+  background-color: #fff;
+  color: #6c63ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.add-item {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white-grey-color);
+  color: var(--grey-dark);
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add-item:hover {
+  background-color: var(--grey-light);
+}
+
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-family: Spartan;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  text-align: left;
+}
+
+.btn-secondary {
+  background: var(--white-grey-color);
+  color: var(--grey-dark);
+}
+
+.btn-secondary:hover {
+  background-color: var(--grey-light);
+}
+
+.btn-primary {
+  margin-right: 1rem;
+  background: var(--grey-dark-btn);
+  color: var(--grey-medium);
+}
+
+.btn-primary:hover {
+  background: var(--secondary-color);
+  color: var(--white-color);
+}
+
+.btn-highlight {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+.btn-highlight:hover {
+  background: var(--primary-light);
+}
+
+.icon {
+  font-size: 14px;
+  margin-right: 5px;
+}

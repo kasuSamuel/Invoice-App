@@ -1,4 +1,4 @@
-<div class="invoice-form-container">
+<div *ngIf="sidebarVisible" class="invoice-form-container">
     <div class="invoice">
         <h1 class="form-title">New Invoice</h1>
 
@@ -55,47 +55,63 @@
         <!-- Invoice Details -->
         <div class="form-section-grid">
             <div>
-                            <label for="invoice-date">Invoice Date</label>
-                            <input type="date" id="invoice-date">
+                <label for="invoice-date">Invoice Date</label>
+                <input type="date" id="invoice-date">
             </div>
 
-<div>
+            <div>
                 <label for="payment-terms">Payment Terms</label>
                 <select id="payment-terms">
+                    <option>Select payment-terms</option>
                     <option>Net 1 Days</option>
                     <option>Net 7 Days</option>
                     <option>Net 14 Days</option>
                     <option>Net 30 Days</option>
+                    
                 </select>
-</div>
+            </div>
 
         </div>
 
-            <div class="form-section">
-                <label for="street-address">Project Description</label>
-                <input type="text" id="project-description" placeholder="">
-            
-                <div class="grid-container">
-                    <div>
-                        <label for="city">City</label>
-                        <input type="text" id="city" placeholder="">
-                    </div>
-                    <div>
-                        <label for="postcode">Post Code</label>
-                        <input type="text" id="postcode" placeholder="">
-                    </div>
-                    <div>
-                        <label for="country">Country</label>
-                        <input type="text" id="country" placeholder="">
-                    </div>
-                </div>
-            </div>
+        <div class="form-section">
+            <label for="street-address">Project Description</label>
+            <input type="text" id="project-description" placeholder="">
 
+        </div>
+
+        <div class="item-list">
+            <h3>Item List</h3>
+            <table class="item-table">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Qty.</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <!-- <tbody>
+                        <tr>
+                            <td><input type="text" value="Banner Design"></td>
+                            <td><input type="number" value="1"></td>
+                            <td><input type="number" value="156.00"></td>
+                            <td>156.00</td>
+                            <td>
+                            <button type="button">🗑️</button></td>
+                        </tr>
+                    </tbody> -->
+            </table>
+            <app-button label=" Add New Item" icon="+" customClass=" add-item"></app-button>
+        </div>
         <!-- Buttons -->
         <div class="form-actions">
-            <button class="btn btn-secondary">Discard</button>
-            <button class="btn btn-primary">Save as Draft</button>
-            <button class="btn btn-highlight">Save & Send</button>
+            <app-button label="Discard" customClass="btn btn-secondary"></app-button>
+            <div class="btn-container">
+                <app-button label="Save as Draft" customClass="btn btn-primary"></app-button>
+                <app-button label="Save & Send" customClass="btn btn-highlight"></app-button>
+
+            </div>
         </div>
     </div>
 </div>

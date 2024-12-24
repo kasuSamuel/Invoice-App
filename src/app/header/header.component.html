@@ -8,10 +8,8 @@
             <div class="filter">
                 Filter by status <span><app-icon [src]="'assets/images/icon-arrow-down.svg'"></app-icon> </span>
             </div>
-            <button class="new-invoice">
-                <div class="icon">+</div>
-                New Invoice
-            </button>
+ <app-button (click)="toggleSidebar()" label="New Invoice" icon="+" customClass="new-invoice"></app-button>
+
         </div>
     </header>
 </div>

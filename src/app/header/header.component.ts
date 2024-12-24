@@ -2,11 +2,12 @@ import { DataService } from './../shared/data.service';
 import { Component, OnInit } from '@angular/core';
 import { IconComponent } from "../icon/icon.component";
 import { HeadlineComponent } from "../headline/headline.component";
+import { ButtonComponent } from "../button/button.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [IconComponent, HeadlineComponent],
+  imports: [IconComponent, HeadlineComponent, ButtonComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -15,5 +16,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.initTheme();
+  }
+  toggleSidebar() {
+    this.dataService.toggleSidebar(); // Toggle the sidebar visibility
   }
 }

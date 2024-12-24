@@ -18,6 +18,7 @@ import { SideNavbarComponent } from "./side-navbar/side-navbar.component";
 import { EmptyInvoicePageComponent } from "./empty-invoice-page/empty-invoice-page.component";
 import { HeaderComponent } from "./header/header.component";
 import { DataService } from './shared/data.service';
+import { CreateInvoiceFullFormPageComponent } from "./create-invoice-full-form-page/create-invoice-full-form-page.component";
 
 @Component({
   selector: 'app-root',
@@ -41,6 +42,7 @@ import { DataService } from './shared/data.service';
     SideNavbarComponent,
     EmptyInvoicePageComponent,
     HeaderComponent,
+    CreateInvoiceFullFormPageComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
