@@ -2,9 +2,9 @@
     <header class="header">
         <div>
     <app-headline [level]="1" [text]="'Invoices'" className="main-headline"></app-headline>
-            <div class="subtext">No invoices</div>
+            <div class="subtext">There are {{totalNumber}} total invoices</div>
         </div>
-        <div class="controls">
+        <div class="controls"> 
             <div class="filter">
                 Filter by status <span><app-icon [src]="'assets/images/icon-arrow-down.svg'"></app-icon> </span>
             </div>

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { IconComponent } from "../icon/icon.component";
 import { HeadlineComponent } from "../headline/headline.component";
 import { ButtonComponent } from "../button/button.component";
+import { Invoice } from '../shared/invoice.interface';
 
 @Component({
   selector: 'app-header',
@@ -13,10 +14,19 @@ import { ButtonComponent } from "../button/button.component";
 })
 export class HeaderComponent implements OnInit {
   constructor(private dataService: DataService) {}
+  invoices: Invoice[] = [];
+  totalNumber : number = 0;
 
   ngOnInit(): void {
     this.dataService.initTheme();
+    this.dataService.getData().subscribe((response) => {
+      this.invoices= response; 
+      this.totalNumber = this.invoices.length;
+      console.log(this.invoices.length);
+    });
   }
+
+
   toggleSidebar() {
     this.dataService.toggleSidebar(); // Toggle the sidebar visibility
   }

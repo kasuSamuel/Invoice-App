@@ -1,0 +1,43 @@
+
+label {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: -0.25px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: var(--purple-text-color);
+    margin-bottom: 10px;
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    border: 1px solid #DFE3FA;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  
+  select {
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    background-image: url('../../assets/images/icon-arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: 95% center;
+    padding: 10px;
+    
+  }
+  
+  input:focus,
+  select:focus {
+    border-color: #8a2be2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
+  }

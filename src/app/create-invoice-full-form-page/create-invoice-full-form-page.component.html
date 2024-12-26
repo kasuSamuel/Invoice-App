@@ -7,6 +7,11 @@
             <h2 class="section-title">Bill From</h2>
             <label for="street-address">Street Address</label>
             <input type="text" id="street-address" placeholder="">
+            
+                   <app-input-field [labelFor]="'street-address'" [labelText]="'Street Address'" [inputId]="'street-address'"
+                        [placeholder]="'Enter street address'" [(ngModel)]="streetAddress">
+                    </app-input-field>
+            
 
             <div class="grid-container">
                 <div>
@@ -32,7 +37,7 @@
 
             <label for="client-email">Client's Email</label>
             <input type="email" id="client-email" placeholder="">
-
+`
             <label for="client-address">Street Address</label>
             <input type="text" id="client-address" placeholder="">
 
@@ -65,7 +70,6 @@
                     <option>Net 7 Days</option>
                     <option>Net 14 Days</option>
                     <option>Net 30 Days</option>
-                    
                 </select>
             </div>
 
