@@ -1,99 +1,88 @@
-
-
 <div class="container">
-  <div class="container-detials">
-    <button class="goBack" >
-      <app-icon [src]="'assets/images/icon-arrow-left.svg'"></app-icon>
-      <p>Go Back</p>
-    </button>
-    <div class="card-header">
-      <div class="status">
-        <p>Status:</p>
-        <span class="status-text">Pending</span>
-      </div>
-      <div class="action-buttons">
-        <app-button label="Edit" customClass="action-button edit"></app-button>
-        <app-button
-          label="Delete"
-          customClass="action-button delete"
-        ></app-button>
-        <app-button
-          label="Mark as Paid"
-          customClass="action-button paid"
-        ></app-button>
-      </div>
-    </div>
+    <div class="container-detials" *ngIf="selectedInvoice">
+        <button class="goBack" (click)="goBack()">
+            <app-icon [src]="'assets/images/icon-arrow-left.svg'"></app-icon>
+            <p>Go Back</p>
+        </button>
 
-    <div class="card-full-details">
-      <div class="invoice-details">
-        <div class="section">
-          <h2>#XM9141</h2>
-          <p>Graphic Design</p>
-        </div>
-        <div class="section address">
-          <p>19 Union Terrace</p>
-          <p>London</p>
-          <p>E1 3EZ</p>
-          <p>United Kingdom</p>
-        </div>
-      </div>
-
-      <div class="dates-and-billing">
-        <div>
-          <div class="section-container">
-            <div class="section">
-              <p class="purple">Invoice Date</p>
-              <strong>21 Aug 2021</strong>
+        <div class="card-header">
+            <div class="status">
+                <p>Status:</p>
+                <span class="status-text" [ngClass]="{ 'paid': selectedInvoice.status === 'paid', 'pending': selectedInvoice.status === 'pending','draft': selectedInvoice.status === 'draft' }">{{ selectedInvoice.status }}</span>
             </div>
-            <div class="section">
-              <p class="purple">Payment Due</p>
-              <strong>20 Sep 2021</strong>
+            <div class="action-buttons">
+                <app-button label="Edit" customClass="action-button edit"></app-button>
+                <app-button label="Delete" customClass="action-button delete"></app-button>
+                <app-button label="Mark as Paid" customClass="action-button paid"></app-button>
             </div>
-          </div>
-        </div>
-        <div class="section">
-          <p class="purple">Bill To</p>
-          <strong>Alex Grim</strong>
-          <p class="purple">84 Church Way</p>
-          <p class="purple">Bradford</p>
-          <p class="purple">BD1 9PB</p>
-          <p class="purple">United Kingdom</p>
         </div>
 
-        <div class="section">
-          <p class="purple">Sent to</p>
-          <strong>alexgrimmail.com</strong>
+        <div class="card-full-details">
+            <div class="invoice-details">
+                <div class="section">
+                    <h2>#{{ selectedInvoice.id }}</h2>
+                    <p>{{ selectedInvoice.description }}</p>
+                </div>
+                <div class="section address">
+                    <p>{{ selectedInvoice.senderAddress.street }}</p>
+                    <p>{{ selectedInvoice.senderAddress.city }}</p>
+                    <p>{{ selectedInvoice.senderAddress.postCode }}</p>
+                    <p>{{ selectedInvoice.senderAddress.country }}</p>
+                </div>
+            </div>
+
+            <div class="dates-and-billing">
+                <div class="section-container">
+                    <div class="section">
+                        <p class="purple">Invoice Date</p>
+                        <strong>{{ selectedInvoice.createdAt | date: 'dd MMM yyyy' }}</strong>
+                    </div>
+                    <div class="section">
+                        <p class="purple">Payment Due</p>
+                        <strong>{{ selectedInvoice.paymentDue | date: 'dd MMM yyyy' }}</strong>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <p class="purple">Bill To</p>
+                    <strong>{{ selectedInvoice.clientName }}</strong>
+                    <p>{{ selectedInvoice.clientAddress.street }}</p>
+                    <p>{{ selectedInvoice.clientAddress.city }}</p>
+                    <p>{{ selectedInvoice.clientAddress.postCode }}</p>
+                    <p>{{ selectedInvoice.clientAddress.country }}</p>
+                </div>
+
+                <div class="section">
+                    <p class="purple">Sent to</p>
+                    <strong>{{ selectedInvoice.clientEmail }}</strong>
+                </div>
+            </div>
+
+            <div class="items-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>QTY.</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of selectedInvoice.items">
+                            <td>{{ item.name }}</td>
+                            <td class="purple">{{ item.quantity }}</td>
+                            <td class="purple">£ {{ item.price }}</td>
+                            <td>£ {{ item.total}}</td> 
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="amount-due">
+                <p>Amount Due</p>
+                <h1>£ {{ selectedInvoice.total }}</h1>
+            </div>
         </div>
-      </div>
-
-      <div class="items-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Item Name</th>
-              <th>QTY.</th>
-              <th>Price</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Banner Design</td>
-              <td class="purple">1</td>
-              <td class="purple">£ 156.00</td>
-              <td>£ 156.00</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="amount-due">
-        <p>Amount Due</p>
-        <h1>£ 556.00</h1>
-      </div>
     </div>
-  </div>
 </div>
-
-
-

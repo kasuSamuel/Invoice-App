@@ -82,6 +82,26 @@ body[data-theme="dark"] .invoice-form-container input , body[data-theme="dark"] 
 body[data-theme="dark"] .invoice-card-container .card{
   background-color: var(--dark-input-color);
   color: var(--white-color);}
+body[data-theme="dark"] .container .card-header{
+  background-color: var(--dark-input-color);
+  color: var(--white-color);
+}
+
+body[data-theme="dark"] .container .card-full-details{
+  background-color: var(--dark-input-color);
+  color: var(--white-color);
+}
+body[data-theme="dark"] .container .card-full-details .items-table{
+  background-color: #48549F1A;
+  
+}
+body[data-theme="dark"] .container .card-full-details .purple{
+color: #DFE3FA;  
+}
+body[data-theme="dark"] .container .card-full-details .amount-due{
+  background-color: black;
+  
+}
 
 body[data-theme="dark"] .invoice-form-container .invoice .item-list table thead th,body[data-theme="dark"] .invoice-card-container .card p{
   color: var(--white-color);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,signal  } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from "../icon/icon.component";
@@ -15,10 +15,7 @@ import { Invoice } from '../shared/invoice.interface';
   styleUrl: './invoice-card.component.css'
 })
 export class InvoiceCardComponent implements OnInit {
-  selectedInvoiceSignal() {
-    throw new Error('Method not implemented.');
-  }
-
+  selectedInvoiceSignal = signal<Invoice | null>(null);
   invoices: Invoice[] = [];
 
   constructor(private dataService: DataService, private router : Router) {}
@@ -30,7 +27,12 @@ export class InvoiceCardComponent implements OnInit {
     });
   }
 
-  viewCardDetail() {
-    this.router.navigate(['/card-detail']);
+
+
+
+  viewCardDetail(invoice: Invoice): void {
+    this.dataService.setSelectedInvoice(invoice);
+    this.router.navigate(['/card-details']);
+    console.log('viewCardDetail');
   }
 }

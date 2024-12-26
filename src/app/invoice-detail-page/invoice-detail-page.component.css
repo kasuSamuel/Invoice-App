@@ -60,11 +60,10 @@
     font-weight: bold;
     font-size: 0.9rem;
     border-radius: 6px;
-    flex: 1;
-    background-color: #fffbf4;
-    color: #ff8f00;
+    flex: 1; 
     padding: 4px 9px;
   }
+  
   
   .status-text::before {
     content: '.';
@@ -73,6 +72,22 @@
     font-size: 2rem;
     display: inline-block;
     vertical-align: middle; 
+  }
+
+
+  .status-text.paid {
+    background-color: #f3fcf7;
+    color: #33d69f;
+  }
+  
+  .status-text.pending {
+    background-color: #fffbf4;
+    color: #ff8f00;
+  }
+  
+  .status-text.draft {
+    background-color: #f4f4f5;
+    color: #373b53;
   }
 
   .action-buttons {
