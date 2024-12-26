@@ -1,7 +1,7 @@
 
 <app-header></app-header>
 <div class="invoice-card-container" >
-    <div class="card" *ngFor="let invoice of invoices">
+    <div class="card" *ngFor="let invoice of invoices" (click)="viewCardDetail(invoice)">
         <p class="invoice-id">#{{ invoice.id }}</p>
         <p class="invoice-due">Due {{ invoice.paymentDue | date: 'dd MMM yyyy' }}</p>
         <p class="invoice-client">{{ invoice.clientName }}</p>
@@ -10,6 +10,6 @@
             [ngClass]="{ 'paid': invoice.status === 'paid', 'pending': invoice.status === 'pending','draft': invoice.status === 'draft' }">
             {{ invoice.status }}
         </div>
-        <app-icon  (click)="viewCardDetail(invoice)" [src]="'assets/images/icon-arrow-right.svg'"></app-icon>
+        <app-icon [src]="'assets/images/icon-arrow-right.svg'"></app-icon>
     </div>
 </div>

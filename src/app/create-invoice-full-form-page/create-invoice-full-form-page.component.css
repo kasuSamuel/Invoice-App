@@ -78,12 +78,13 @@ select {
   width: 100%;
   padding: 8px 12px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #DFE3FA;
   border-radius: 5px;
   font-size: 0.9rem;
   color: #333;
   margin-top: 10px;
 }
+
 
 select {
   appearance: none; 
@@ -93,6 +94,7 @@ select {
   background-repeat: no-repeat;
   background-position: 95% center;
   padding: 10px;
+  
 }
 
 input:focus,

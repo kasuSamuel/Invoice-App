@@ -20,6 +20,7 @@ import { HeaderComponent } from "./header/header.component";
 import { DataService } from './shared/data.service';
 import { CreateInvoiceFullFormPageComponent } from "./create-invoice-full-form-page/create-invoice-full-form-page.component";
 import { HttpClientModule } from '@angular/common/http';
+import { CalenderComponent } from "./calender/calender.component";
 
 @Component({
   selector: 'app-root',
@@ -44,7 +45,9 @@ import { HttpClientModule } from '@angular/common/http';
     EmptyInvoicePageComponent,
     HeaderComponent,
     CreateInvoiceFullFormPageComponent,
-    HttpClientModule],
+    HttpClientModule,
+    CalenderComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

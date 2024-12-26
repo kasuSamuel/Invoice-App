@@ -3,11 +3,12 @@ import { HeadlineComponent } from "../headline/headline.component";
 import { ButtonComponent } from "../button/button.component";
 import { DataService } from '../shared/data.service';
 import { CommonModule } from '@angular/common';
+import { CalenderComponent } from "../calender/calender.component";
 
 @Component({
   selector: 'app-create-invoice-full-form-page',
   standalone: true,
-  imports: [HeadlineComponent, ButtonComponent , CommonModule],
+  imports: [HeadlineComponent, ButtonComponent, CommonModule, CalenderComponent],
   templateUrl: './create-invoice-full-form-page.component.html',
   styleUrl: './create-invoice-full-form-page.component.css'
 })

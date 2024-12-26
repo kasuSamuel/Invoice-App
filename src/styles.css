@@ -111,6 +111,14 @@ body[data-theme="dark"] .invoice-form-container .invoice .item-list .add-item {
   background-color: var(--dark-input-color);
   color: var(--white-color);
 }
+body[data-theme="dark"] .date-picker-container .input-wrapper{
+  background-color: var(--dark-input-color);
+  color: var(--white-color);
+  border: none;
+}
+body[data-theme="dark"] .date-picker-container .calendar{
+  background-color: var(--dark-input-color);
+}
 
 body[data-theme="dark"] .invoice-form-container label  {
   color: var(--primary-dark);

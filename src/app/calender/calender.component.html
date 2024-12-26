@@ -1,0 +1,21 @@
+<div class="date-picker-container">
+    <label for="issue-date" class="date-label">Issue Date</label>
+    <div class="input-wrapper"  (click)="toggleCalendar()">
+        <input type="text" id="issue-date" placeholder="mm/dd/yyyy" readonly class="date-input"
+            #issueDateInput />
+        <app-icon [src]="'assets/images/icon-calendar.svg'"></app-icon>
+    </div>
+
+    <!-- Calendar Container -->
+    <div class="calendar" [ngClass]="{ 'hidden': isCalendarHidden }">
+        <div class="calendar-header">
+            <app-icon (click)="previousMonth()" [src]="'assets/images/icon-arrow-left.svg'"></app-icon>
+            <span class="calendar-title" #calendarTitle>{{ currentDate | date:'MMM yyyy' }}</span>
+                        <app-icon (click)="nextMonth()" [src]="'assets/images/icon-arrow-right.svg'"></app-icon>
+
+        </div>
+        <div class="calendar-days" #calendarDays>
+            <!-- Calendar days will be dynamically generated -->
+        </div>
+    </div>
+</div>
