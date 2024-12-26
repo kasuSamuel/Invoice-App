@@ -1,1 +1,15 @@
-<p>invoice-card works!</p>
+
+<app-header></app-header>
+<div class="invoice-card-container">
+    <div class="card" *ngFor="let invoice of invoices">
+        <p class="invoice-id">#{{ invoice.id }}</p>
+        <p class="invoice-due">Due {{ invoice.paymentDue | date: 'dd MMM yyyy' }}</p>
+        <p class="invoice-client">{{ invoice.clientName }}</p>
+        <p class="invoice-amount">£{{ invoice.total }}</p>
+        <div class="invoice-status"
+            [ngClass]="{ 'paid': invoice.status === 'paid', 'pending': invoice.status === 'pending','draft': invoice.status === 'draft' }">
+            {{ invoice.status }}
+        </div>
+        <app-icon (click)="viewCardDetail()" [src]="'assets/images/icon-arrow-right.svg'"></app-icon>
+    </div>
+</div>

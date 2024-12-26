@@ -19,6 +19,7 @@ import { EmptyInvoicePageComponent } from "./empty-invoice-page/empty-invoice-pa
 import { HeaderComponent } from "./header/header.component";
 import { DataService } from './shared/data.service';
 import { CreateInvoiceFullFormPageComponent } from "./create-invoice-full-form-page/create-invoice-full-form-page.component";
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -42,8 +43,8 @@ import { CreateInvoiceFullFormPageComponent } from "./create-invoice-full-form-p
     SideNavbarComponent,
     EmptyInvoicePageComponent,
     HeaderComponent,
-    CreateInvoiceFullFormPageComponent
-],
+    CreateInvoiceFullFormPageComponent,
+    HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

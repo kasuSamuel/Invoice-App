@@ -1,18 +1,18 @@
-interface Address {
+export interface Address {
     street: string;
     city: string;
     postCode: string;
     country: string;
   }
   
-  interface Item {
+  export interface  Item {
     name: string;
     quantity: number;
     price: number;
     total: number;
   }
   
-  interface Invoice {
+  export interface  Invoice {
     id: string;
     createdAt: string;
     paymentDue: string;
