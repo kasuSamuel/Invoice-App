@@ -11,6 +11,7 @@ import { DataService } from '../shared/data.service';
 export class HeadlineComponent  implements OnInit  {
   @Input() level: number = 1;  
   @Input() text: string = '';  
+  @Input() number: number = 0;  
   @Input() className: string = ''; 
 
 

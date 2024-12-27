@@ -4,11 +4,13 @@ import { IconComponent } from "../icon/icon.component";
 import { HeadlineComponent } from "../headline/headline.component";
 import { ButtonComponent } from "../button/button.component";
 import { Invoice } from '../shared/invoice.interface';
+import { TextComponent } from "../text/text.component";
+import { FilterComponent } from "../filter/filter.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [IconComponent, HeadlineComponent, ButtonComponent],
+  imports: [IconComponent, HeadlineComponent, ButtonComponent, TextComponent, FilterComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

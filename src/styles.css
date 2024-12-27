@@ -1,10 +1,9 @@
 @font-face {
   font-family: "Spartan";
-  src: url("assets/spartan/LeagueSpartan-Black.ttf") format("truetype"),
-    url("assets/spartan/LeagueSpartan-Regular.ttf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
+  src: 
+       url("../src/assets/League_Spartan/LeagueSpartan-VariableFont_wght.ttf") format("truetype");
 }
+
 
 :root {
   /* Primary Colors */
@@ -64,6 +63,7 @@ body[data-theme="dark"] main .text p span {
 }
 body[data-theme="dark"] h2,
 body[data-theme="dark"] h1,
+body[data-theme="dark"] h4,
 body[data-theme="dark"] .invoice-form-container h1  {
   color: var(--white-color);
 }
@@ -116,12 +116,27 @@ body[data-theme="dark"] .date-picker-container .input-wrapper{
   color: var(--white-color);
   border: none;
 }
-body[data-theme="dark"] .date-picker-container .calendar{
+body[data-theme="dark"] .date-picker-container .calendar, body[data-theme="dark"] .filter-container .filter-dropdown{
   background-color: var(--dark-input-color);
+
 }
+
+body[data-theme="dark"] .filter-container .filter-dropdown span {
+  color: var(--white-color);
+
+}
+body[data-theme="dark"] .filter-container .filter-dropdown{
+  background-color: var(--dark-input-color);
+
+}
+
 
 body[data-theme="dark"] .invoice-form-container label  {
   color: var(--primary-dark);
+}
+
+body[data-theme="dark"] .container .container-detials tbody .invoice-amount-id{
+  color: #DFE3FA;
 }
 .header .new-invoice {
   display: flex;

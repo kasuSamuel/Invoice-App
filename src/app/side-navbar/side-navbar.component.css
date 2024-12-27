@@ -24,3 +24,13 @@ nav {
     height: 1px; 
     background: var(--grey-medium);
 }
+
+.logo {
+    width: 100%;
+    height: 5rem;
+}
+
+.logo-icon {
+    width: 100%;
+    height: 100%;
+}

@@ -1,1 +1,16 @@
-<p>filter works!</p>
+<div class="filter-container">
+    <div class="filter-header" >
+        <app-headline [level]="4" [text]="'Filter by status'" class="invoice-id"></app-headline>
+        <!-- Conditionally change the icon source based on dropdown visibility -->
+        <app-icon (click)="toggleDropdown($event)"
+            [src]="dropdownVisible ? 'assets/images/icon-arrow-up.svg' : 'assets/images/icon-arrow-down.svg'">
+        </app-icon>
+    </div>
+    <!-- Dropdown content that appears when dropdownVisible is true -->
+    <div class="filter-dropdown" *ngIf="dropdownVisible">
+        <label class="filter-option" *ngFor="let option of filterOptions">
+            <input type="checkbox" [(ngModel)]="option.checked" (change)="onFilterChange()" />
+            <span>{{ option.label }}</span>
+        </label>
+    </div>
+</div>

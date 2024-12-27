@@ -4,11 +4,13 @@ import { IconComponent } from "../icon/icon.component";
 import { CommonModule, Location } from '@angular/common';
 import { Invoice } from '../shared/invoice.interface';
 import { DataService } from '../shared/data.service';
+import { TextComponent } from "../text/text.component";
+import { HeadlineComponent } from "../headline/headline.component";
 
 @Component({
   selector: 'app-invoice-detail-page',
   standalone: true,
-  imports: [ButtonComponent, IconComponent, CommonModule],
+  imports: [ButtonComponent, IconComponent, CommonModule, TextComponent, HeadlineComponent],
   templateUrl: './invoice-detail-page.component.html',
   styleUrl: './invoice-detail-page.component.css'
 })

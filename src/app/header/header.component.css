@@ -21,7 +21,7 @@ text-decoration-skip-ink: none;
 }
 
 .header .subtext {
-    color: var(--grey-medium);
+    color: #7e88c3;
     font-family: Spartan;
     font-size: 12px;
     font-weight: 400;
@@ -30,6 +30,7 @@ text-decoration-skip-ink: none;
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
+    
     
     
 }

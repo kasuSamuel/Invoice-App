@@ -6,11 +6,13 @@ import { HeaderComponent } from "../header/header.component";
 import { Router } from '@angular/router';
 import { DataService } from '../shared/data.service';
 import { Invoice } from '../shared/invoice.interface';
+import { HeadlineComponent } from "../headline/headline.component";
+import { TextComponent } from "../text/text.component";
 
 @Component({
   selector: 'app-invoice-card',
   standalone: true,
-  imports: [HttpClientModule, CommonModule, IconComponent, HeaderComponent],
+  imports: [HttpClientModule, CommonModule, IconComponent, HeaderComponent, HeadlineComponent, TextComponent],
   templateUrl: './invoice-card.component.html',
   styleUrl: './invoice-card.component.css'
 })
@@ -32,6 +34,6 @@ export class InvoiceCardComponent implements OnInit {
   viewCardDetail(invoice: Invoice): void {
     this.dataService.setSelectedInvoice(invoice);
     this.router.navigate(['/card-details']);
-    console.log('viewCardDetail'); 
+    console.log(this.invoices); 
   }
 }

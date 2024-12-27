@@ -2,14 +2,21 @@
 <app-header></app-header>
 <div class="invoice-card-container" >
     <div class="card" *ngFor="let invoice of invoices" (click)="viewCardDetail(invoice)">
-        <p class="invoice-id">#{{ invoice.id }}</p>
-        <p class="invoice-due">Due {{ invoice.paymentDue | date: 'dd MMM yyyy' }}</p>
-        <p class="invoice-client">{{ invoice.clientName }}</p>
-        <p class="invoice-amount">£{{ invoice.total }}</p>
+
+        <div class="card-header-id">
+            <app-text [level]="1" [text]="'#'" class="invoice-due"></app-text>
+                    <app-headline [level]="3" [text]=" invoice.id " className="invoice-id"></app-headline>
+        </div>
+
+<app-text [level]="1" [text]="'Due ' + (invoice.paymentDue | date: 'dd MMM yyyy')" class="invoice-due"></app-text>
+<app-text [level]="2" [text]="invoice.clientName " class="invoice-client" ></app-text>
+        <app-headline [level]="2" [text]="'£' + invoice.total" class="invoice-amount"></app-headline>
+
+
         <div class="invoice-status"
             [ngClass]="{ 'paid': invoice.status === 'paid', 'pending': invoice.status === 'pending','draft': invoice.status === 'draft' }">
             {{ invoice.status }}
         </div>
-        <app-icon [src]="'assets/images/icon-arrow-right.svg'"></app-icon>
+        <app-icon [src]="'assets/images/icon-arrow-right.svg'"></app-icon> 
     </div>
 </div>

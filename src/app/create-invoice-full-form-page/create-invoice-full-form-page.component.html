@@ -1,15 +1,13 @@
 <div *ngIf="sidebarVisible" class="invoice-form-container">
     <div class="invoice">
         <h1 class="form-title">New Invoice</h1>
-
         <!-- Bill From Section -->
         <div class="form-section">
             <h2 class="section-title">Bill From</h2>
-            <label for="street-address">Street Address</label>
-            <input type="text" id="street-address" placeholder="">
+
             
                    <app-input-field [labelFor]="'street-address'" [labelText]="'Street Address'" [inputId]="'street-address'"
-                        [placeholder]="'Enter street address'" [(ngModel)]="streetAddress">
+                        [placeholder]="''" [(ngModel)]="streetAddress">
                     </app-input-field>
             
 
@@ -93,16 +91,7 @@
                         <th></th>
                     </tr>
                 </thead>
-                <!-- <tbody>
-                        <tr>
-                            <td><input type="text" value="Banner Design"></td>
-                            <td><input type="number" value="1"></td>
-                            <td><input type="number" value="156.00"></td>
-                            <td>156.00</td>
-                            <td>
-                            <button type="button">🗑️</button></td>
-                        </tr>
-                    </tbody> -->
+
             </table>
             <app-button label=" Add New Item" icon="+" customClass=" add-item"></app-button>
         </div>
@@ -117,3 +106,28 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- <tbody>
+                                        <tr>
+                                            <td><input type="text" value="Banner Design"></td>
+                                            <td><input type="number" value="1"></td>
+                                            <td><input type="number" value="156.00"></td>
+                                            <td>156.00</td>
+                                            <td>
+                                            <button type="button">🗑️</button></td>
+                                        </tr>
+                                    </tbody> -->

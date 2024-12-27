@@ -1,1 +1,4 @@
-<p>text works!</p>
+<ng-container [ngSwitch]="level">
+    <p class="first-child" *ngSwitchCase="1" [ngClass]="className">{{ text }}</p>
+    <p class="second-child" *ngSwitchCase="2" [ngClass]="className">{{ text }}</p>
+</ng-container>
