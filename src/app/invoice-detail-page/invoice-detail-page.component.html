@@ -8,14 +8,14 @@
     <div class="card-header">
       <div class="status">
         <p>Status:</p>
-        <span
+        <div
           class="status-text"
           [ngClass]="{
             paid: selectedInvoice.status === 'paid',
             pending: selectedInvoice.status === 'pending',
             draft: selectedInvoice.status === 'draft'
           }"
-          >{{ selectedInvoice.status }}</span
+          >{{ selectedInvoice.status }}</div
         >
       </div>
       <div class="action-buttons">
@@ -220,5 +220,14 @@
         <h1>£ {{ selectedInvoice.total }}</h1>
       </div>
     </div>
+
+
+        <div class="card-header">
+            <div class="action-buttons">
+                <app-button label="Edit" customClass="action-button edit"></app-button>
+                <app-button label="Delete" customClass="action-button delete"></app-button>
+                <app-button label="Mark as Paid" customClass="action-button paid"></app-button>
+            </div>
+        </div>
   </div>
 </div>

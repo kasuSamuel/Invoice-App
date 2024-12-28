@@ -46,3 +46,13 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
+@media screen and (max-width: 1024px) {
+  .side-navbar {
+top: 0;
+    width: 70%;
+    height: 3rem;
+  }
+  .main-content {
+    right: 2.5%;
+  }
+}

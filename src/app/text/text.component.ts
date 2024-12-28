@@ -12,5 +12,6 @@ export class TextComponent {
     @Input() level: number = 1;  
     @Input() text: string = '';  
     @Input() className: string = '';
+    
 
 }

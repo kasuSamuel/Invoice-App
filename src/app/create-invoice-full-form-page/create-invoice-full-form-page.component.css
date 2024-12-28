@@ -110,7 +110,7 @@ select:focus {
 /* Grid Styles */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 10px;
 }
 
@@ -211,4 +211,31 @@ select:focus {
 
 .action-buttons .save-send:hover {
   background: #694bd8;
+}
+
+
+
+@media screen and (max-width: 1031px) {
+  .invoice-form-container{
+    margin-top: 5rem;
+  }
+
+  .invoice {
+    margin-left: 0;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .invoice-form-container {
+    width: 70%;
+  }
+  
+
+  .grid-container > :last-child {
+    width: 13.3rem;
+  }
+
+
 }

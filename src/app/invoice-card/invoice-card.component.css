@@ -106,3 +106,36 @@ font-size: 16px;
     display: flex;
     align-items: center;
   }
+
+  .right-arrow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    width: 10px;
+height: 10px;
+
+
+  }
+
+
+
+
+  @media screen and (max-width: 1031px) {
+
+
+    .invoice-card-container {
+      padding: 0;
+    }
+    .card {
+      width: 90%;
+
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .right-arrow{
+      display: none;
+    }
+    
+
+    }

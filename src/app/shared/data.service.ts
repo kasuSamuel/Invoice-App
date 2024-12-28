@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Invoice } from './invoice.interface';
 
@@ -63,4 +63,25 @@ export class DataService {
   getSelectedInvoice(): Observable<Invoice | null> {
     return this.selectedInvoice$;
   }
+
+
+
+  // getFilteredItems(selectedStatuses: string[]): Observable<Invoice[]> {
+  //   if (!selectedStatuses.length) {
+  //     return of(this.items); // Return all items if no filter is selected
+  //   }
+  //   const filtered = this.items.filter((item) => selectedStatuses.includes(item.status));
+  //   return of(filtered);
+  // }
+
+
+
+
+  private cardsSource = new BehaviorSubject<any[]>([]); // Initialize with an empty array
+  currentCards = this.cardsSource.asObservable(); // Observable to get current cards
+
+  updateCards(cards: any[]): void {
+    this.cardsSource.next(cards); // Push new cards to the BehaviorSubject
+  }
+
 }

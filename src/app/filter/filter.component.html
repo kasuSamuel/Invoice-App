@@ -5,12 +5,13 @@
         <app-icon (click)="toggleDropdown($event)"
             [src]="dropdownVisible ? 'assets/images/icon-arrow-up.svg' : 'assets/images/icon-arrow-down.svg'">
         </app-icon>
+        <span class="span-hidden"></span>
     </div>
     <!-- Dropdown content that appears when dropdownVisible is true -->
-    <div class="filter-dropdown" *ngIf="dropdownVisible">
-        <label class="filter-option" *ngFor="let option of filterOptions">
-            <input type="checkbox" [(ngModel)]="option.checked" (change)="onFilterChange()" />
-            <span>{{ option.label }}</span>
-        </label>
-    </div>
+<div class="filter-dropdown" *ngIf="dropdownVisible">
+  <label class="filter-option" *ngFor="let option of filterOptions">
+    <input type="checkbox" [(ngModel)]="option.checked" (change)="onFilterChange(option)" />
+    <span>{{ option.value }}</span>
+  </label>
+</div>
 </div>

@@ -14,26 +14,56 @@ import { TextComponent } from "../text/text.component";
   standalone: true,
   imports: [HttpClientModule, CommonModule, IconComponent, HeaderComponent, HeadlineComponent, TextComponent],
   templateUrl: './invoice-card.component.html',
-  styleUrl: './invoice-card.component.css'
+  styleUrls: ['./invoice-card.component.css']
 })
 export class InvoiceCardComponent implements OnInit {
   invoices: Invoice[] = [];
+  filteredInvoices: Invoice[] = [];  // Store filtered invoices
+  currentFilters: string[] = []; // Store current selected filters
 
-  constructor(private dataService: DataService, private router : Router) {}
+  constructor(private dataService: DataService, private router: Router) {}
 
   ngOnInit() {
+    // Fetch invoice data on component initialization
     this.dataService.getData().subscribe((response) => {
-      this.invoices= response; 
-      console.log(this.invoices);
+      this.invoices = response;
+
+    
+    this.filterInvoices();
+
+
+      // this.filteredInvoices = this.invoices.filter(invoice => {
+      //   return  this.currentFilters.some(filter => filter === invoice.status);
+      // }); // Initially, show all invoices
+      
     });
   }
 
+  // Method to handle filter changes
+  onFiltersChanged(selectedFilters: string[]): void {
+    this.currentFilters = selectedFilters;
+    console.log('Selected Filters:', this.currentFilters);
+    this.filterInvoices();
+  }
 
+  // Filter invoices based on the selected filters
+  filterInvoices(): void {
+    if (this.currentFilters.length === 0) {
+      // If no filters, show all invoices
+      this.filteredInvoices = this.invoices;
+    } else {
+      // Filter invoices based on selected filters
+      this.filteredInvoices = this.invoices.filter(invoice =>
+        this.currentFilters.some(filter => filter === invoice.status) // Match any of the selected filters
+      );
+    }
 
+    console.log('Filtered Invoices:', this.filteredInvoices);
+  }
 
+  // View the card details for a specific invoice
   viewCardDetail(invoice: Invoice): void {
     this.dataService.setSelectedInvoice(invoice);
     this.router.navigate(['/card-details']);
-    console.log(this.invoices); 
   }
 }

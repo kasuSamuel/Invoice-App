@@ -12,8 +12,6 @@ import { DialogComponent } from './dialog/dialog.component';
 import { DeleteCardComponent } from './delete-card/delete-card.component';
 import { EmptyPageComponent } from './empty-page/empty-page.component';
 import { InvoiceDetailPageComponent } from './invoice-detail-page/invoice-detail-page.component';
-import { InvoiceSideDrawerComponent } from './invoice-side-drawer/invoice-side-drawer.component';
-import { InvoiceFilterComponent } from './invoice-filter/invoice-filter.component';
 import { SideNavbarComponent } from "./side-navbar/side-navbar.component";
 import { EmptyInvoicePageComponent } from "./empty-invoice-page/empty-invoice-page.component";
 import { HeaderComponent } from "./header/header.component";
@@ -39,8 +37,6 @@ import { CalenderComponent } from "./calender/calender.component";
     DeleteCardComponent,
     EmptyPageComponent,
     InvoiceDetailPageComponent,
-    InvoiceSideDrawerComponent,
-    InvoiceFilterComponent,
     SideNavbarComponent,
     EmptyInvoicePageComponent,
     HeaderComponent,

@@ -1,8 +1,9 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener,  Output, EventEmitter} from '@angular/core';
 import { FormsModule } from '@angular/forms'; // Import FormsModule for ngModel
 import { HeadlineComponent } from "../headline/headline.component";
 import { IconComponent } from "../icon/icon.component";
 import { CommonModule } from '@angular/common';
+import { Invoice } from '../shared/invoice.interface';
 
 @Component({
   selector: 'app-filter',
@@ -11,16 +12,17 @@ import { CommonModule } from '@angular/common';
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.css']
 })
-export class FilterComponent {
+export class FilterComponent  {
   dropdownVisible = false;
+  @Output() filtersChanged: EventEmitter<any[]> = new EventEmitter<any[]>();
+
 
   // Define the available filter options
   filterOptions = [
-    { label: 'Draft', value: 'draft', checked: false },
-    { label: 'Pending', value: 'pending', checked: false },
-    { label: 'Paid', value: 'paid', checked: false }
+    {  value: 'draft', checked: false },
+    {  value: 'pending', checked: false },
+    {  value: 'paid', checked: false }
   ];
-
   // Toggles dropdown visibility
   toggleDropdown(event: MouseEvent) {
     // Prevent click event from propagating to the document to avoid closing the dropdown
@@ -28,12 +30,19 @@ export class FilterComponent {
     this.dropdownVisible = !this.dropdownVisible;
   }
 
-  // Handle filter changes
-  onFilterChange() {
-    // Log the state of all filters
-    console.log('Filter state:', this.filterOptions);
-  }
 
+  selectedFilters: any[] = [];
+onFilterChange(option: { value: string; checked: boolean }): void {
+  const { checked, value } = option;
+  const index = this.selectedFilters.findIndex(filter => filter === value); 
+  if (checked && index === -1)   this.selectedFilters.push(value); 
+   else if (!checked && index !== -1) this.selectedFilters.splice(index, 1); 
+  // console.table(this.selectedFilters);
+  this.filtersChanged.emit(this.selectedFilters);
+}
+
+  
+  
   // Close dropdown if clicked outside
   @HostListener('document:click', ['$event'])
   closeDropdown(event: MouseEvent) {

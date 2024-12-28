@@ -66,3 +66,25 @@ text-decoration-skip-ink: none;
     align-items: center;
     width: 100%;
 }
+.hidden-text {
+    display: inline;
+  }
+
+@media screen and (max-width: 1031px) {
+    .container {
+margin-top: 5.5rem;
+    }
+    
+    .header {
+        width: 90%;
+padding-left: 0;
+padding-right: 0;
+
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .subtext .hide-mobile {
+        display: none;
+      }
+}
