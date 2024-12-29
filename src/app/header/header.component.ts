@@ -21,6 +21,8 @@ export class HeaderComponent implements OnInit {
   totalNumber : number = 0;
   isMobile: boolean = false;
   invoiceText: string = '';
+  isMobile$ = this.dataService.isMobile$;
+
   @Output() filtersChanged = new EventEmitter<any[]>();
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class HeaderComponent implements OnInit {
   onFiltersChanged(filters: any[]): void {
     this.filtersChanged.emit(filters); // Forward the filters to the parent (InvoiceCardComponent)
   }
-  
+
   toggleSidebar() {
     this.dataService.toggleSidebar(); // Toggle the sidebar visibility
   }

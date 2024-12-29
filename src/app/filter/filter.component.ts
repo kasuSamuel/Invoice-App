@@ -4,6 +4,7 @@ import { HeadlineComponent } from "../headline/headline.component";
 import { IconComponent } from "../icon/icon.component";
 import { CommonModule } from '@angular/common';
 import { Invoice } from '../shared/invoice.interface';
+import { DataService } from '../shared/data.service';
 
 @Component({
   selector: 'app-filter',
@@ -15,8 +16,9 @@ import { Invoice } from '../shared/invoice.interface';
 export class FilterComponent  {
   dropdownVisible = false;
   @Output() filtersChanged: EventEmitter<any[]> = new EventEmitter<any[]>();
+  isMobile$ = this.dataService.isMobile$;
 
-
+constructor(private dataService: DataService) {}
   // Define the available filter options
   filterOptions = [
     {  value: 'draft', checked: false },

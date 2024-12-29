@@ -1,5 +1,5 @@
 <div *ngIf="sidebarVisible" class="invoice-form-container">
-    <div class="invoice">
+    <form class="invoice">
         <h1 class="form-title">New Invoice</h1>
         <!-- Bill From Section -->
         <div class="form-section">
@@ -97,14 +97,14 @@
         </div>
         <!-- Buttons -->
         <div class="form-actions">
-            <app-button label="Discard" customClass="btn btn-secondary"></app-button>
+<app-button label="Discard" customClass="btn btn-secondary" (click)="discardChanges()"></app-button>
             <div class="btn-container">
                 <app-button label="Save as Draft" customClass="btn btn-primary"></app-button>
                 <app-button label="Save & Send" customClass="btn btn-highlight"></app-button>
 
             </div>
         </div>
-    </div>
+    </form>
 </div>
 
 

@@ -3,15 +3,22 @@
         <div>
     <app-headline [level]="1" [text]="'Invoices'" className="main-headline"></app-headline>
 
-<app-text [level]="2" [text]="'There are ' + totalNumber + ' total '+ 'invoices'" class="subtext"></app-text>
+    <app-text [level]="2" [text]="(isMobile$ | async) 
+                  ? totalNumber + ' invoices' 
+                  : 'There are ' + totalNumber + ' total invoices'" class="subtext">
+    </app-text>
 
         </div>
         <div class="controls"> 
             <div class="filter">
                 <app-filter (filtersChanged)="onFiltersChanged($event)"></app-filter>
-                <!-- Filter by status <span><app-icon [src]="'assets/images/icon-arrow-down.svg'"></app-icon> </span> -->
             </div>
- <app-button (click)="toggleSidebar()" label="New Invoice" icon="+" customClass="new-invoice"></app-button>
+
+
+<app-button (click)="toggleSidebar()" [label]="(isMobile$ | async) ? 'New' : 'New Invoice'" icon="+"
+    customClass="new-invoice">
+</app-button>
+
 
         </div>
     </header>

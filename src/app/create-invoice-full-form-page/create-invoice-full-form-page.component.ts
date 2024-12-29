@@ -39,6 +39,12 @@ export class CreateInvoiceFullFormPageComponent implements OnInit{
       this.sidebarVisible = visible;
     });
   }
+
+
+
+  discardChanges() {
+    let confirmation = window.confirm("Are you sure you want to discard the changes?");
+  }
   }
 
 

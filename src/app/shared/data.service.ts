@@ -15,7 +15,10 @@ export class DataService {
   private selectedInvoiceSubject = new BehaviorSubject<Invoice | null>(null);
   selectedInvoice$ = this.selectedInvoiceSubject.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    window.addEventListener('resize', this.updateViewport.bind(this));
+
+  }
 
   getData(): Observable<Invoice[]> {
     return this.http.get<Invoice[]>('../../assets/data.json');
@@ -84,4 +87,12 @@ export class DataService {
     this.cardsSource.next(cards); // Push new cards to the BehaviorSubject
   }
 
+
+  private isMobileSubject = new BehaviorSubject<boolean>(window.innerWidth <= 768);
+  isMobile$ = this.isMobileSubject.asObservable();
+
+
+  private updateViewport() {
+    this.isMobileSubject.next(window.innerWidth <= 600);
+  }
 }

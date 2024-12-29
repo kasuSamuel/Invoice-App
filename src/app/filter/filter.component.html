@@ -1,6 +1,9 @@
 <div class="filter-container">
     <div class="filter-header" >
-        <app-headline [level]="4" [text]="'Filter by status'" class="invoice-id"></app-headline>
+        <app-headline [level]="4" [text]="(isMobile$ | async) ? 'Filter' :
+            'Filter by status'" class="invoice-id"></app-headline>
+
+
         <!-- Conditionally change the icon source based on dropdown visibility -->
         <app-icon (click)="toggleDropdown($event)"
             [src]="dropdownVisible ? 'assets/images/icon-arrow-up.svg' : 'assets/images/icon-arrow-down.svg'">
