@@ -82,6 +82,17 @@ body[data-theme="dark"] .invoice-form-container input , body[data-theme="dark"] 
 body[data-theme="dark"] .invoice-card-container .card{
   background-color: var(--dark-input-color);
   color: var(--white-color);}
+
+/* Dark theme styles */
+body[data-theme="light"] .invoice-card-container .card .invoice-status.draft {
+  color: #373B53 !important; 
+}
+
+
+
+
+
+
 body[data-theme="dark"] .container .card-header{
   background-color: var(--dark-input-color);
   color: var(--white-color);
@@ -125,6 +136,10 @@ body[data-theme="dark"] .date-picker-container .calendar, body[data-theme="dark"
 
 }
 
+body[data-theme="dark"] .filter-container .filter-dropdown span {
+  color: var(--white-color);
+
+}
 body[data-theme="dark"] .filter-container .filter-dropdown span {
   color: var(--white-color);
 

@@ -74,18 +74,18 @@ font-size: 16px;
   
   
   .invoice-status.paid {
-    background-color: #f3fcf7;
+    background-color: #97c3b416;
     color: #33d69f;
   }
   
   .invoice-status.pending {
-    background-color: #fffbf4;
+    background-color: #ceba9f2c;
     color: #ff8f00;
   }
   
   .invoice-status.draft {
-    background-color: #f4f4f5;
-    color: #373b53;
+    background-color: #b9bed73a;
+    color: #DFE3FA;
   }
   
   app-icon {
@@ -137,5 +137,45 @@ height: 10px;
       display: none;
     }
     
+.card {
+position: relative;
+height: 6rem;
+}
+
+.card-header-id{
+  position: absolute;
+}
+
+#invoice-due{
+  position: absolute;
+  top: 45px;
+}
+
+.card-header-id{
+  top: 10px;
+}
+.invoice-amount{
+  position: absolute;
+  top: 63px;
+}
+
+.invoice-status{
+  position: absolute;
+right: 20px;
+top: 40px;
+padding: 2px 10px;
+
+}
+
+.invoice-client{
+  position: absolute;
+  right: 20px;
+  top: 15px;
+
+}
+
+.invoice-status {
+}
+
 
     }

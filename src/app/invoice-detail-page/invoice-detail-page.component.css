@@ -68,7 +68,6 @@
     font-weight: bold;
     font-size: 0.9rem;
     border-radius: 6px;
-    flex: 1; 
     padding: 4px 9px;
 
   }
@@ -256,7 +255,7 @@ text-decoration-skip-ink: none;
   
   @media screen and (max-width: 1031px) {
     .container {
-        margin-top: 3rem;
+        margin-top: 7rem;
 
       }
     .container-detials{
@@ -271,8 +270,7 @@ text-decoration-skip-ink: none;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-top: 20vh;
-
+        margin-top: 15rem;
       }
     .dates-and-billing {
           width: 100%;
@@ -286,11 +284,9 @@ width: 100%;
 justify-content: space-between;
 }
 
-.status-text{
-    width: 2rem;
-    
+.dates-and-billing{
+    margin-top: 1.5rem;
 }
-
 
 .card-footer {
     background: #fff;
