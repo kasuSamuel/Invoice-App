@@ -18,8 +18,8 @@ import { TextComponent } from "../text/text.component";
 })
 export class InvoiceCardComponent implements OnInit {
   invoices: Invoice[] = [];
-  filteredInvoices: Invoice[] = [];  // Store filtered invoices
-  currentFilters: string[] = []; // Store current selected filters
+  filteredInvoices: Invoice[] = [];  
+  currentFilters: string[] = []; 
 
   constructor(private dataService: DataService, private router: Router) {}
 

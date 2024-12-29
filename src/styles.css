@@ -86,6 +86,10 @@ body[data-theme="dark"] .container .card-header{
   background-color: var(--dark-input-color);
   color: var(--white-color);
 }
+body[data-theme="dark"] .container .card-footer{
+  background-color: var(--dark-input-color);
+  color: var(--white-color);
+}
 
 body[data-theme="dark"] .container .card-full-details{
   background-color: var(--dark-input-color);

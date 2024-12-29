@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="container-detials" *ngIf="selectedInvoice">
+<div class="container" *ngIf="selectedInvoice">
+  <div class="container-detials" >
     <button class="goBack" (click)="goBack()">
       <app-icon [src]="'assets/images/icon-arrow-left.svg'"></app-icon>
       <p>Go Back</p>
@@ -18,7 +18,7 @@
           >{{ selectedInvoice.status }}</div
         >
       </div>
-      <div class="action-buttons">
+      <div id="action-buttons" class="action-buttons">
         <app-button label="Edit" customClass="action-button edit"></app-button>
         <app-button
           label="Delete"
@@ -222,12 +222,12 @@
     </div>
 
 
-        <div class="card-header">
-            <div class="action-buttons">
-                <app-button label="Edit" customClass="action-button edit"></app-button>
-                <app-button label="Delete" customClass="action-button delete"></app-button>
-                <app-button label="Mark as Paid" customClass="action-button paid"></app-button>
-            </div>
-        </div>
   </div>
+      <div class="card-footer">
+          <div class="action-buttons">
+              <app-button label="Edit" customClass="action-button edit"></app-button>
+              <app-button label="Delete" customClass="action-button delete"></app-button>
+              <app-button label="Mark as Paid" customClass="action-button paid"></app-button>
+          </div>
+      </div>
 </div>
