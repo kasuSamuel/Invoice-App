@@ -26,6 +26,7 @@
         <app-button
           label="Delete"
           customClass="action-button delete"
+          (click)="openDialog()"
         ></app-button>
         <app-button
           label="Mark as Paid"
@@ -229,8 +230,10 @@
       <div class="card-footer">
           <div class="action-buttons">
               <app-button label="Edit" customClass="action-button edit"></app-button>
-              <app-button label="Delete" customClass="action-button delete"></app-button>
+              <app-button label="Delete" (click)="openDialog()" customClass="action-button delete"></app-button>
               <app-button label="Mark as Paid" customClass="action-button paid"></app-button>
           </div>
       </div>
+
+<app-dialog class="dialog" *ngIf="showDialog"></app-dialog>
 </div>

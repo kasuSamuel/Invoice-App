@@ -1,1 +1,11 @@
-<p>dialog works!</p>
+<div class="container" *ngIf="showConfirmDialog">
+    <div class="dialog-box">
+        <app-headline [level]="1" [text]="'Confirm Deletion'" class="headline"></app-headline><br>
+        <app-text [level]="1" [text]="'Are you sure you want to delete invoice #XM9141? This action cannot be undone.' "
+            class="text"></app-text><br>
+        <div class="buttons">
+            <app-button label="Cancel" (click)="delete()" customClass="cancel-button"></app-button>
+            <app-button label="Delete" (click)="cancel()" customClass="delete-button"></app-button>
+        </div>
+    </div>
+</div>

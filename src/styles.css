@@ -280,4 +280,21 @@ color: var(--white-color);
   background-color: #7C5DFA;
 }
 
+.delete-button {
+  width: 5rem;
+  color: var(--white-color);
+    background-color: var(--error-color);
+  }
+.delete-button:hover {
+  background: #FF9797;
+}
+.cancel-button {
+  width: 5rem;
+  color: #7E88C3;
+    background-color: #F9FAFE;
+  }
+.cancel-button:hover {
+  background-color: #DFE3FA;
+}
+
 
