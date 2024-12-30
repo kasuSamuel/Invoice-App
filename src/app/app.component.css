@@ -55,4 +55,10 @@ top: 0;
   .main-content {
     right: 2.5%;
   }
+
+}
+
+@media screen and (max-width: 600px) {
+  .create-invoice-full-form-page {
+  }
 }

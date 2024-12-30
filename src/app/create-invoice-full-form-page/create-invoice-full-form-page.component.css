@@ -70,7 +70,6 @@ label {
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: var(--purple-text-color);
-  margin-bottom: 10px;
 }
 
 input,
@@ -105,7 +104,31 @@ select:focus {
 }
 
 
+tr td:nth-child(1) {
+  width: 30%;
 
+
+}
+
+tr td:nth-child(2) {
+  width: 10%;
+}
+
+tr td:nth-child(3) {
+  width: 20%;
+}
+
+tr td:nth-child(4) {
+  width: 15%;
+}
+
+tr td:nth-child(5) {
+  width: 10%;
+  cursor: pointer;
+}
+tr td:nth-child(5):hover {
+  filter: sepia(1) saturate(10) hue-rotate(-50deg);
+}
 
 /* Grid Styles */
 .grid-container {
@@ -209,8 +232,30 @@ select:focus {
   color: #ffffff;
 }
 
+
+.lable-holder{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
 .action-buttons .save-send:hover {
   background: #694bd8;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.error {
+  color: red;
+  font-size: 0.9em;
+  display: block;
 }
 
 
@@ -226,16 +271,22 @@ select:focus {
 
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
 
   .invoice-form-container {
-    width: 70%;
+    width: 80%;
+    height: 100%;
   }
   
 
   .grid-container > :last-child {
-    width: 13.3rem;
-  }
+    grid-column: 1 / -1;   }
 
+  
 
+    .error {
+      color: red;
+      font-size: 0.7em;
+      display: block;
+    }
 }

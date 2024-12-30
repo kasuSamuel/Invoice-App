@@ -41,3 +41,47 @@ label {
     outline: none;
     box-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
   }
+
+
+  /* Style for error messages */
+.error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+.error p {
+  margin: 0;
+}
+  
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+
+  .invoice-form-container {
+    width: 80%;
+    height: 100%;
+  }
+  
+
+  .grid-container > :last-child {
+    grid-column: 1 / -1;   }
+
+  
+
+    
+    .error {
+      color: red;
+      font-size: 0.7em;
+      display: block;
+    }
+}

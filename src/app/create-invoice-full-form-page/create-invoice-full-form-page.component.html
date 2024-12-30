@@ -1,84 +1,195 @@
 <div *ngIf="sidebarVisible" class="invoice-form-container">
-    <form class="invoice">
+    <form [formGroup]="invoiceForm" class="invoice" (ngSubmit)="onSubmit()">
         <h1 class="form-title">New Invoice</h1>
+
         <!-- Bill From Section -->
-        <div class="form-section">
+        <div class="form-section" formGroupName="billFrom">
             <h2 class="section-title">Bill From</h2>
 
-            
-                   <app-input-field [labelFor]="'street-address'" [labelText]="'Street Address'" [inputId]="'street-address'"
-                        [placeholder]="''" [(ngModel)]="streetAddress">
-                    </app-input-field>
-            
+            <div class="lable-holder">
+
+                <label for="street-address">Street Address</label>
+
+                <div
+                    *ngIf="invoiceForm.get('billFrom.streetAddress')?.invalid && (invoiceForm.get('billFrom.streetAddress')?.touched || invoiceForm.get('billFrom.streetAddress')?.dirty)">
+                    <small class="error" *ngIf="invoiceForm.get('billFrom.streetAddress')?.hasError('required')">Street
+                        address is required.</small>
+                </div>
+            </div>
+
+
+            <input formControlName="streetAddress" id="street-address" placeholder="">
+
 
             <div class="grid-container">
-                <div >
-                    <label for="city">City</label>
-                    <input type="text" id="city" placeholder="">
+                <div>
+                    <div class="lable-holder">
+
+                        <label for="city">City</label>
+                        <div
+                            *ngIf="invoiceForm.get('billFrom.city')?.invalid && (invoiceForm.get('billFrom.city')?.touched || invoiceForm.get('billFrom.city')?.dirty)">
+                            <small class="error" *ngIf="invoiceForm.get('billFrom.city')?.hasError('required')">
+                                required.</small>
+                        </div>
+                    </div>
+                    <input formControlName="city" id="city" placeholder="">
                 </div>
-                <div >
-                    <label for="postcode">Post Code</label>
-                    <input type="text" id="postcode" placeholder="">
+
+
+                <div>
+
+                    <div class="lable-holder">
+
+                        <label for="postcode">Post Code</label>
+                        <div
+                            *ngIf="invoiceForm.get('billFrom.postcode')?.invalid && (invoiceForm.get('billFrom.postcode')?.touched || invoiceForm.get('billFrom.postcode')?.dirty)">
+                            <small class="error"
+                                *ngIf="invoiceForm.get('billFrom.postcode')?.hasError('required')">required.</small>
+                        </div>
+                    </div>
+                    <input formControlName="postcode" id="postcode" placeholder="">
                 </div>
-                <div >
-                    <label for="country">Country</label>
-                    <input type="text" id="country" placeholder="">
+                <div>
+                    <div class="lable-holder">
+
+                        <label for="country">Country</label>
+                        <div
+                            *ngIf="invoiceForm.get('billFrom.country')?.invalid && (invoiceForm.get('billFrom.country')?.touched || invoiceForm.get('billFrom.country')?.dirty)">
+                            <small class="error"
+                                *ngIf="invoiceForm.get('billFrom.country')?.hasError('required')">required.</small>
+                        </div>
+                    </div>
+                    <input formControlName="country" id="country" placeholder="">
                 </div>
             </div>
         </div>
 
         <!-- Bill To Section -->
-        <div class="form-section">
+        <div class="form-section" formGroupName="billTo">
             <h2 class="section-title">Bill To</h2>
-            <label for="client-name">Client's Name</label>
-            <input type="text" id="client-name" placeholder="">
+            <div class="lable-holder">
 
-            <label for="client-email">Client's Email</label>
-            <input type="email" id="client-email" placeholder="">
-`
-            <label for="client-address">Street Address</label>
-            <input type="text" id="client-address" placeholder="">
+                <label for="client-name">Client's Name</label>
+                <div
+                    *ngIf="invoiceForm.get('billTo.clientName')?.invalid && (invoiceForm.get('billTo.clientName')?.touched || invoiceForm.get('billTo.clientName')?.dirty)">
+                    <small class="error" *ngIf="invoiceForm.get('billTo.clientName')?.hasError('required')">Client's
+                        name is
+                        required.</small>
+                </div>
+            </div>
+            <input formControlName="clientName" id="client-name" placeholder="">
+
+            <div class="lable-holder">
+
+                <label for="client-email">Client's Email</label>
+                <div
+                    *ngIf="invoiceForm.get('billTo.clientEmail')?.invalid && (invoiceForm.get('billTo.clientEmail')?.touched || invoiceForm.get('billTo.clientEmail')?.dirty)">
+                    <small class="error" *ngIf="invoiceForm.get('billTo.clientEmail')?.hasError('required')">Client's
+                        email
+                        is required.</small>
+                    <small class="error" *ngIf="invoiceForm.get('billTo.clientEmail')?.hasError('email')">Please enter a
+                        valid email.</small>
+                </div>
+            </div>
+            <input formControlName="clientEmail" id="client-email" placeholder="">
+
+            <div class="lable-holder">
+
+                <label for="client-address">Street Address</label>
+                <div
+                    *ngIf="invoiceForm.get('billTo.clientAddress')?.invalid && (invoiceForm.get('billTo.clientAddress')?.touched || invoiceForm.get('billTo.clientAddress')?.dirty)">
+                    <small class="error" *ngIf="invoiceForm.get('billTo.clientAddress')?.hasError('required')">Client's
+                        address is required.</small>
+                </div>
+            </div>
+            <input formControlName="clientAddress" id="client-address" placeholder="">
 
             <div class="grid-container">
                 <div>
-                    <label for="bill-to-city">City</label>
-                    <input type="text" id="bill-to-city" placeholder="">
+                    <div class="lable-holder">
+
+                        <label for="bill-to-city">City</label>
+                        <div
+                            *ngIf="invoiceForm.get('billTo.billToCity')?.invalid && (invoiceForm.get('billTo.billToCity')?.touched || invoiceForm.get('billTo.billToCity')?.dirty)">
+                            <small class="error" *ngIf="invoiceForm.get('billTo.billToCity')?.hasError('required')">
+                                required.</small>
+                        </div>
+                    </div>
+                    <input formControlName="billToCity" id="bill-to-city" placeholder="">
                 </div>
                 <div>
-                    <label for="bill-to-postcode">Post Code</label>
-                    <input type="text" id="bill-to-postcode" placeholder="">
+                    <div class="lable-holder">
+
+                        <label for="bill-to-postcode">Post Code</label>
+                        <div
+                            *ngIf="invoiceForm.get('billTo.billToPostcode')?.invalid && (invoiceForm.get('billTo.billToPostcode')?.touched || invoiceForm.get('billTo.billToPostcode')?.dirty)">
+                            <small class="error" *ngIf="invoiceForm.get('billTo.billToPostcode')?.hasError('required')">
+                                required.</small>
+                        </div>
+                    </div>
+                    <input formControlName="billToPostcode" id="bill-to-postcode" placeholder="">
                 </div>
                 <div>
-                    <label for="bill-to-country">Country</label>
-                    <input type="text" id="bill-to-country" placeholder="">
+                    <div class="lable-holder">
+
+                        <label for="bill-to-country">Country</label>
+                        <div
+                            *ngIf="invoiceForm.get('billTo.billToCountry')?.invalid && (invoiceForm.get('billTo.billToCountry')?.touched || invoiceForm.get('billTo.billToCountry')?.dirty)">
+                            <small class="error" *ngIf="invoiceForm.get('billTo.billToCountry')?.hasError('required')">
+                                required.</small>
+                        </div>
+                    </div>
+                    <input formControlName="billToCountry" id="bill-to-country" placeholder="">
                 </div>
             </div>
         </div>
 
         <!-- Invoice Details -->
         <div class="form-section-grid">
-    <app-calender></app-calender>
-
+            <app-calender></app-calender>
 
             <div>
-                <label for="payment-terms">Payment Terms</label>
-                <select id="payment-terms">
-                    <option>Select</option>
-                    <option>Net 1 Days</option>
-                    <option>Net 7 Days</option>
-                    <option>Net 14 Days</option>
-                    <option>Net 30 Days</option>
+                <div class="label-holder">
+                    <label for="payment-terms">Payment Terms</label>
+
+                    <div *ngIf="invoiceForm.get('paymentTerms')?.invalid && 
+             (invoiceForm.get('paymentTerms')?.touched || invoiceForm.get('paymentTerms')?.dirty)">
+                        <!-- Required validation message -->
+                        <small class="error" *ngIf="invoiceForm.get('paymentTerms')?.hasError('required')">
+                            Payment terms are required.
+                        </small>
+                        <!-- Invalid selection error message -->
+                        <small class="error" *ngIf="invoiceForm.get('paymentTerms')?.value === 'Select'">
+                            Invalid selection.
+                        </small>
+                    </div>
+                </div>
+                <select formControlName="paymentTerms" id="payment-terms">
+                    <option value="Select">Select</option>
+                    <option value="Net 1 Days">Net 1 Days</option>
+                    <option value="Net 7 Days">Net 7 Days</option>
+                    <option value="Net 14 Days">Net 14 Days</option>
+                    <option value="Net 30 Days">Net 30 Days</option>
                 </select>
+
             </div>
-
         </div>
 
+        <!-- Project Description -->
         <div class="form-section">
-            <label for="street-address">Project Description</label>
-            <input type="text" id="project-description" placeholder="">
+            <div class="lable-holder">
 
+                <label for="project-description">Project Description</label>
+                <div
+                    *ngIf="invoiceForm.get('projectDescription')?.invalid && (invoiceForm.get('projectDescription')?.touched || invoiceForm.get('projectDescription')?.dirty)">
+                    <small class="error" *ngIf="invoiceForm.get('projectDescription')?.hasError('required')">Project
+                        description is required.</small>
+                </div>
+            </div>
+            <input formControlName="projectDescription" id="project-description" placeholder="">
         </div>
 
+        <!-- Item List -->
         <div class="item-list">
             <h3>Item List</h3>
             <table class="item-table">
@@ -91,43 +202,28 @@
                         <th></th>
                     </tr>
                 </thead>
-
+                <tbody>
+                    <tr *ngFor="let item of items.controls; let i = index" [formGroupName]="i">
+                        <td><input formControlName="itemName"></td>
+                        <td><input formControlName="quantity" type="number"></td>
+                        <td><input formControlName="price" type="number"></td>
+                        <td><span>{{item.value.quantity * item.value.price | currency}}</span></td>
+                        <td>
+                            <img src="../../assets/images/icon-delete.svg" (click)="removeItem(i)" alt="">
+                        </td>
+                    </tr>
+                </tbody>
             </table>
-            <app-button label=" Add New Item" icon="+" customClass=" add-item"></app-button>
+            <app-button (click)="addItem()" label="Add New Item" icon="+" customClass="add-item"></app-button>
         </div>
-        <!-- Buttons -->
+
+        <!-- Form Actions -->
         <div class="form-actions">
-<app-button label="Discard" customClass="btn btn-secondary" (click)="discardChanges()"></app-button>
+            <app-button label="Discard" customClass="btn btn-secondary"></app-button>
             <div class="btn-container">
                 <app-button label="Save as Draft" customClass="btn btn-primary"></app-button>
                 <app-button label="Save & Send" customClass="btn btn-highlight"></app-button>
-
             </div>
         </div>
     </form>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <!-- <tbody>
-                                        <tr>
-                                            <td><input type="text" value="Banner Design"></td>
-                                            <td><input type="number" value="1"></td>
-                                            <td><input type="number" value="156.00"></td>
-                                            <td>156.00</td>
-                                            <td>
-                                            <button type="button">🗑️</button></td>
-                                        </tr>
-                                    </tbody> -->
