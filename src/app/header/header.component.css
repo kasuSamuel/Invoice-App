@@ -1,0 +1,92 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 60%;
+}
+
+.header h1 {
+    margin: 0;
+    color: var(--base-black);
+    font-family: Spartan;
+font-size: 32px;
+font-weight: 700;
+line-height: 35.84px;
+letter-spacing: -1px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+}
+
+.header .subtext {
+    color: #7e88c3;
+    font-family: Spartan;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: -0.25px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    
+    
+    
+}
+
+
+
+.header .controls {
+    display: flex;
+    align-items: center;
+}
+
+.header .filter {
+    margin-right: 20px;
+    color: var(--base-black);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-family: Spartan;
+font-size: 12px;
+font-weight: 700;
+line-height: 15px;
+letter-spacing: -0.25px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+}
+
+.header .filter span {
+    margin-left: 5px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.hidden-text {
+    display: inline;
+  }
+
+@media screen and (max-width: 1031px) {
+    .container {
+margin-top: 5.5rem;
+    }
+    
+    .header {
+        width: 90%;
+padding-left: 0;
+padding-right: 0;
+
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .subtext .hide-mobile {
+        display: none;
+      }
+}

@@ -1,0 +1,18 @@
+<div class="form-group">
+<!-- form-input.component.html -->
+<div class="lable-holder">
+    <label [for]="controlName">{{ label }}</label>
+
+    <div *ngIf="formGroup?.get(controlName)?.invalid && 
+             (formGroup?.get(controlName)?.touched || formGroup?.get(controlName)?.dirty)">
+        <small class="error" *ngIf="formGroup?.get(controlName)?.hasError('required')">
+            {{ label }} is required.
+        </small>
+        <!-- Add other validation error messages here if needed -->
+    </div>
+</div>
+
+<input [formControlName]="controlName" [type]="type" [id]="controlName" [placeholder]="label">
+
+
+</div>

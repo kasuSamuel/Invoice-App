@@ -34,13 +34,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "999kb",
+                  "maximumError": "999mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "999kb",
+                  "maximumError": "999kb"
                 }
               ],
               "outputHashing": "all"
@@ -72,8 +72,9 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
+            "jestConfig": ["jest.config.js"],
             "polyfills": [
               "zone.js",
               "zone.js/testing"

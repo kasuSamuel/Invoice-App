@@ -1,0 +1,239 @@
+<div class="container" *ngIf="selectedInvoice">
+  <div class="container-detials" >
+    <button class="goBack" (click)="goBack()">
+      <app-icon [src]="'assets/images/icon-arrow-left.svg'"></app-icon>
+      <p>Go Back</p>
+    </button>
+
+    <div class="card-header">
+      <div class="status">
+        <p>Status:</p>
+        <div
+          class="status-text"
+          [ngClass]="{
+            paid: selectedInvoice.status === 'paid',
+            pending: selectedInvoice.status === 'pending',
+            draft: selectedInvoice.status === 'draft'
+          }"
+          >
+
+              {{ selectedInvoice.status }}
+          </div
+        >
+      </div>
+      <div id="action-buttons" class="action-buttons">
+        <app-button label="Edit" customClass="action-button edit"></app-button>
+        <app-button
+          label="Delete"
+          customClass="action-button delete"
+          (click)="openDialog()"
+        ></app-button>
+        <app-button
+          label="Mark as Paid"
+          customClass="action-button paid"
+        ></app-button>
+      </div>
+    </div>
+
+    <div class="card-full-details">
+      <div class="invoice-details">
+        <div class="section">
+          <div class="card-header-id">
+            <app-text
+              [level]="1"
+              [text]="'#'"
+              class="invoice-description"
+            ></app-text>
+            <app-headline
+              [level]="2"
+              [text]="selectedInvoice.id"
+              className="invoice-id"
+            ></app-headline>
+          </div>
+          <app-text
+            [level]="2"
+            [text]="selectedInvoice.description"
+            class="invoice-description"
+          ></app-text>
+        </div>
+        <div class="section address">
+          <app-text
+            [level]="2"
+            [text]="selectedInvoice.senderAddress.street"
+            class="invoice-addresses"
+          ></app-text>
+          <app-text
+            [level]="2"
+            [text]="selectedInvoice.senderAddress.city"
+            class="invoice-addresses"
+          ></app-text>
+          <app-text
+            [level]="2"
+            [text]="selectedInvoice.senderAddress.postCode"
+            class="invoice-addresses"
+          ></app-text>
+          <app-text
+            [level]="2"
+            [text]="selectedInvoice.senderAddress.country"
+            class="invoice-addresses"
+          ></app-text>
+        </div>
+      </div>
+
+      <div class="dates-and-billing">
+        <div class="section-container">
+          <div class="section">
+            <app-text
+              [level]="2"
+              [text]="'Invoice Date'"
+              class="invoice-client-addresses"
+            ></app-text>
+            <app-headline
+              [level]="2"
+              [text]="'' + (selectedInvoice.createdAt | date : 'dd MMM yyyy')"
+              className="invoice-id"
+            ></app-headline>
+          </div>
+          <div class="section">
+            <app-text
+              [level]="2"
+              [text]="'Payment Due'"
+              class="invoice-client-addresses"
+            ></app-text>
+
+            <app-headline
+              [level]="2"
+              [text]="'' + (selectedInvoice.paymentDue | date : 'dd MMM yyyy')"
+              className="invoice-id"
+            ></app-headline>
+          </div>
+        </div>
+
+        <div class="section">
+          <app-text
+            [level]="2"
+            [text]="'Bill To'"
+            class="invoice-client-addresses"
+          ></app-text>
+          <app-headline
+            [level]="2"
+            [text]="selectedInvoice.clientName"
+            className="invoice-id"
+          ></app-headline>
+          <app-text
+            [level]="2"
+            [text]="selectedInvoice.clientAddress.street"
+            class="invoice-client-addresses"
+          ></app-text>
+          <app-text
+            [level]="2"
+            [text]="selectedInvoice.clientAddress.city"
+            class="invoice-client-addresses"
+          ></app-text>
+          <app-text
+            [level]="2"
+            [text]="selectedInvoice.clientAddress.postCode"
+            class="invoice-client-addresses"
+          ></app-text>
+          <app-text
+            [level]="2"
+            [text]="selectedInvoice.clientAddress.country"
+            class="invoice-client-addresses"
+          ></app-text>
+        </div>
+
+        <div class="section">
+          <app-text
+            [level]="2"
+            [text]="'Sent to'"
+            class="invoice-client-addresses"
+          ></app-text>
+          <app-headline
+            [level]="2"
+            [text]="selectedInvoice.clientEmail"
+            className="invoice-id"
+          ></app-headline>
+        </div>
+      </div>
+
+      <div class="items-table">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <app-text
+                  [level]="2"
+                  [text]="'Item Name'"
+                  class="invoice-header"
+                ></app-text>
+              </th>
+              <th>
+                <app-text
+                  [level]="2"
+                  [text]="'Qty'"
+                  class="invoice-header"
+                ></app-text>
+              </th>
+              <th>
+                <app-text
+                  [level]="2"
+                  [text]="'Price'"
+                  class="invoice-header"
+                ></app-text>
+              </th>
+              <th>
+                <app-text
+                  [level]="2"
+                  [text]="'Total'"
+                  class="invoice-header"
+                ></app-text>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of selectedInvoice.items">
+              <td>
+                <app-headline
+                  [level]="3"
+                  [text]="item.name"
+                  class="invoice-id"
+                ></app-headline>
+                <td> <app-headline [level]="7" [number]="item.quantity" class="invoice-amount-id"></app-headline>
+              </td>
+
+              <td>
+                <app-headline
+                  [level]="8"
+                  [text]="'£' + item.price"
+                  class="invoice-amount-id"
+                ></app-headline>
+              </td>
+              <td>
+                <app-headline
+                  [level]="3"
+                  [text]="'£' + item.total"
+                  className="invoice-id"
+                ></app-headline>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="amount-due">
+        <p>Amount Due</p>
+        <h1>£ {{ selectedInvoice.total }}</h1>
+      </div>
+    </div>
+
+
+  </div>
+      <div class="card-footer">
+          <div class="action-buttons">
+              <app-button label="Edit" customClass="action-button edit"></app-button>
+              <app-button label="Delete" (click)="openDialog()" customClass="action-button delete"></app-button>
+              <app-button label="Mark as Paid" customClass="action-button paid"></app-button>
+          </div>
+      </div>
+
+<app-dialog class="dialog" *ngIf="showDialog"></app-dialog>
+</div>

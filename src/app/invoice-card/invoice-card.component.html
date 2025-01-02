@@ -1,0 +1,21 @@
+<app-header (filtersChanged)="onFiltersChanged($event)"></app-header>
+
+<div *ngIf="filteredInvoices.length > 0" class="invoice-card-container">
+    <div class="card" *ngFor="let invoice of filteredInvoices" (click)="viewCardDetail(invoice)">
+        <div class="card-header-id">
+                <app-text [level]="1" [text]="'#'" class="invoice-due"></app-text>
+            <app-headline [level]="3" [text]="invoice.id" className="invoice-id"></app-headline>
+        </div>
+        <app-text [level]="1" [text]="'Due ' + (invoice.paymentDue | date: 'dd MMM yyyy')"
+            class="invoice-due" id="invoice-due"></app-text>
+        <app-text [level]="2" [text]="invoice.clientName" class="invoice-client"></app-text>
+        <app-headline [level]="2" [text]="'£' + invoice.total" class="invoice-amount"></app-headline>
+        <div class="invoice-status"
+            [ngClass]="{ 'paid': invoice.status === 'paid', 'pending': invoice.status === 'pending', 'draft': invoice.status === 'draft' }">
+            {{ invoice.status }}
+        </div>
+        <div class="right-arrow">
+            <app-icon [src]="'assets/images/icon-arrow-right.svg'"></app-icon>
+        </div>
+    </div>
+</div>

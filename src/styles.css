@@ -1,1 +1,304 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Spartan";
+  src: 
+       url("../src/assets/League_Spartan/LeagueSpartan-VariableFont_wght.ttf") format("truetype");
+}
+
+
+:root {
+  /* Primary Colors */
+  --primary-color: #7c5dfa;
+  --primary-light: #9277ff;
+  --primary-dark: #DFE3FA;
+
+  /* Secondary Colors */
+  --secondary-color: #1e2139;
+  --secondary-dark: #252945;
+
+  /* Neutral Colors */
+  --grey-light: #dfe3fa;
+  --grey-medium: #888eb0;
+  --grey-dark: #7e88c3;
+  --grey-dark-btn: #373b53;
+
+  /* Base and Background Colors */
+  --base-black: #0c0e16;
+  --dark-bg: #141625;
+  --light-bg: #f8f8fb;
+
+  /* Error Colors */
+  --error-color: #ec5757;
+  --error-light: #ff9797;
+
+  --white-color: #ffffff;
+  --light-text-color: #000;
+  --purple-text-color: #7e88c3;
+  --white-grey-color: #f9fafe;
+  --dark-input-color: #252945;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Spartan", sans-serif;
+  background-color: var(--light-bg);
+}
+
+body[data-theme="dark"] {
+  background-color: var(--dark-bg);
+  color: var(--white-color);
+}
+
+body[data-theme="dark"] main .text p {
+  color: var(--grey-light);
+}
+body[data-theme="dark"] main .text p span {
+  color: var(--grey-light);
+}
+body[data-theme="dark"] h2,
+body[data-theme="dark"] h1,
+body[data-theme="dark"] h4,
+body[data-theme="dark"] .invoice-form-container h1  {
+  color: var(--white-color);
+}
+body[data-theme="dark"] .container .header .controls .filter {
+  color: var(--grey-light);
+}
+body[data-theme="dark"] .invoice-form-container{
+  background-color: var(--dark-bg);
+  color: var(--white-color);
+}
+body[data-theme="dark"] .invoice-form-container input , body[data-theme="dark"] .invoice-form-container select{
+  background-color: var(--dark-input-color);
+  color: var(--white-color);
+  border-color: var(--dark-input-color);
+}
+body[data-theme="dark"] .invoice-card-container .card{
+  background-color: var(--dark-input-color);
+  color: var(--white-color);}
+
+/* Dark theme styles */
+body[data-theme="light"] .invoice-card-container .card .invoice-status.draft {
+  color: #373B53 !important; 
+}
+
+
+
+
+
+
+body[data-theme="dark"] .container .card-header{
+  background-color: var(--dark-input-color);
+  color: var(--white-color);
+}
+body[data-theme="dark"] .container .card-footer{
+  background-color: var(--dark-input-color);
+  color: var(--white-color);
+}
+
+body[data-theme="dark"] .container .card-full-details{
+  background-color: var(--dark-input-color);
+  color: var(--white-color);
+}
+body[data-theme="dark"] .container .card-full-details .items-table{
+  background-color: #48549F1A;
+  
+}
+ body[data-theme="dark"] .container .dialog-box{
+  background-color: #1E2139;
+  
+}
+body[data-theme="dark"] .container .card-full-details .purple{
+color: #DFE3FA;  
+}
+body[data-theme="dark"] .container .card-full-details .amount-due{
+  background-color: black;
+  
+}
+
+body[data-theme="dark"] .invoice-form-container .invoice .item-list table thead th,body[data-theme="dark"] .invoice-card-container .card p{
+  color: var(--white-color);
+}
+
+body[data-theme="dark"] .invoice-form-container .invoice .item-list .add-item,body[data-theme="dark"] .cancel-button{
+  background-color: var(--dark-input-color);
+  color: var(--white-color);
+}
+body[data-theme="dark"] .date-picker-container .input-wrapper{
+  background-color: var(--dark-input-color);
+  color: var(--white-color);
+  border: none;
+}
+body[data-theme="dark"] .date-picker-container .calendar, body[data-theme="dark"] .filter-container .filter-dropdown{
+  background-color: var(--dark-input-color);
+
+}
+
+body[data-theme="dark"] .filter-container .filter-dropdown span {
+  color: var(--white-color);
+
+}
+body[data-theme="dark"] .filter-container .filter-dropdown span {
+  color: var(--white-color);
+
+}
+body[data-theme="dark"] .filter-container .filter-dropdown{
+  background-color: var(--dark-input-color);
+
+}
+
+
+body[data-theme="dark"] .invoice-form-container label  {
+  color: var(--primary-dark);
+}
+
+body[data-theme="dark"] .container .container-detials tbody .invoice-amount-id{
+  color: #DFE3FA;
+}
+.header .new-invoice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.header .new-invoice:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 10px rgba(108, 99, 255, 0.5);
+  background-color: var(--primary-light);
+}
+
+.header .new-invoice .icon {
+  background-color: #fff;
+  color: #6c63ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.add-item {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white-grey-color);
+  color: var(--grey-dark);
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add-item:hover {
+  background-color: var(--grey-light);
+}
+
+.btn {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-family: Spartan;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.btn:hover {
+  transform: scale(1.1);}
+
+.btn-secondary {
+  background: var(--white-grey-color);
+  color: var(--grey-dark);
+}
+
+.btn-secondary:hover {
+  background-color: var(--grey-light);
+}
+
+.btn-primary {
+  margin-right: 1rem;
+  background: var(--grey-dark-btn);
+  color: var(--grey-medium);
+}
+
+.btn-primary:hover {
+  background: var(--secondary-color);
+  color: var(--white-color);
+}
+
+.btn-highlight {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+.btn-highlight:hover {
+  background: var(--primary-light);
+}
+
+.icon {
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.action-button{
+height: 48px;
+}
+
+.action-button.edit {
+color: #7E88C3;
+background-color: var(--grey-light);
+
+}
+.action-button.delete {
+color: var(--white-color);
+  background-color: var(--error-color);
+}
+.action-button.paid {
+color: var(--white-color);
+  background-color: #7C5DFA;
+}
+
+.delete-button {
+  width: 5rem;
+  color: var(--white-color);
+    background-color: var(--error-color);
+  }
+.delete-button:hover {
+  background: #FF9797;
+}
+.cancel-button {
+  width: 5rem;
+  color: #7E88C3;
+    background-color: #F9FAFE;
+  }
+.cancel-button:hover {
+  background-color: #DFE3FA;
+}
+
+

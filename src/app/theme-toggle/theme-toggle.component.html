@@ -1,0 +1,4 @@
+<button (click)="toggleTheme()">
+    <span *ngIf="isDarkMode"><app-icon [src]="'assets/images/icon-moon.svg'"></app-icon></span>
+    <span *ngIf="!isDarkMode"><app-icon [src]="'assets/images/icon-sun.svg'"></app-icon></span>
+</button>
