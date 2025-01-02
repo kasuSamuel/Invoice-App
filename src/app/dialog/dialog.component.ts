@@ -15,12 +15,11 @@ export class DialogComponent {
   showConfirmDialog = true;
 
   cancel() {
-    this.showConfirmDialog = false;
-    
+    console.log('Invoice deleted');
+    location.reload();
   }
 
   delete() {
-    console.log('Invoice deleted');
     this.showConfirmDialog = false;
   }
 }

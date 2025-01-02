@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Invoice } from './invoice.interface';
 
@@ -7,47 +7,72 @@ import { Invoice } from './invoice.interface';
   providedIn: 'root'
 })
 export class DataService {
+
+  // Theme management
   private themeKey: string = 'theme';
+
+  // Sidebar visibility management
   private sidebarVisibility = new BehaviorSubject<boolean>(false);
   sidebarVisibility$ = this.sidebarVisibility.asObservable();
-  
-  // Add BehaviorSubject for selected invoice
+
+  // Selected invoice management
   private selectedInvoiceSubject = new BehaviorSubject<Invoice | null>(null);
   selectedInvoice$ = this.selectedInvoiceSubject.asObservable();
 
-  constructor(private http: HttpClient) { 
+  // Cards data management
+  private cardsSource = new BehaviorSubject<any[]>([]);
+  currentCards = this.cardsSource.asObservable();
+
+  // Mobile device check management
+  private isMobileSubject = new BehaviorSubject<boolean>(window.innerWidth <= 768);
+  isMobile$ = this.isMobileSubject.asObservable();
+
+  // Filtered count management
+  private filteredCountSubject = new BehaviorSubject<number>(0);
+  filteredCount$ = this.filteredCountSubject.asObservable();
+
+  constructor(private http: HttpClient) {
+    // Initialize viewport resizing listener
     window.addEventListener('resize', this.updateViewport.bind(this));
 
+    // Initialize selected invoice from localStorage if available
+    const savedInvoice = localStorage.getItem('selectedInvoice');
+    if (savedInvoice) {
+      this.selectedInvoiceSubject.next(JSON.parse(savedInvoice));
+    }
+
+    // Initialize theme on page load
+    this.initTheme();
   }
 
+  // Fetch invoice data from the JSON file
   getData(): Observable<Invoice[]> {
     return this.http.get<Invoice[]>('../../assets/data.json');
   }
 
-  toggleSidebar() {
+  // Sidebar toggle methods
+  toggleSidebar(): void {
     this.sidebarVisibility.next(!this.sidebarVisibility.value);
   }
 
-  showSidebar() {
+  showSidebar(): void {
     this.sidebarVisibility.next(true);
   }
 
-  hideSidebar() {
+  hideSidebar(): void {
     this.sidebarVisibility.next(false);
   }
 
-  // Get the current theme
+  // Theme management methods
   getTheme(): string | null {
     return localStorage.getItem(this.themeKey);
   }
 
-  // Set the theme in localStorage
   setTheme(theme: string): void {
     localStorage.setItem(this.themeKey, theme);
     document.body.setAttribute('data-theme', theme);
   }
 
-  // Initialize the theme based on localStorage
   initTheme(): void {
     const savedTheme = this.getTheme();
     if (savedTheme) {
@@ -57,42 +82,28 @@ export class DataService {
     }
   }
 
-  // Set selected invoice
+  // Selected invoice management methods
   setSelectedInvoice(invoice: Invoice): void {
     this.selectedInvoiceSubject.next(invoice);
+    localStorage.setItem('selectedInvoice', JSON.stringify(invoice));
   }
 
-  // Get selected invoice
   getSelectedInvoice(): Observable<Invoice | null> {
     return this.selectedInvoice$;
   }
 
-
-
-  // getFilteredItems(selectedStatuses: string[]): Observable<Invoice[]> {
-  //   if (!selectedStatuses.length) {
-  //     return of(this.items); // Return all items if no filter is selected
-  //   }
-  //   const filtered = this.items.filter((item) => selectedStatuses.includes(item.status));
-  //   return of(filtered);
-  // }
-
-
-
-
-  private cardsSource = new BehaviorSubject<any[]>([]); // Initialize with an empty array
-  currentCards = this.cardsSource.asObservable(); // Observable to get current cards
-
+  // Cards data management
   updateCards(cards: any[]): void {
-    this.cardsSource.next(cards); // Push new cards to the BehaviorSubject
+    this.cardsSource.next(cards);
   }
 
-
-  private isMobileSubject = new BehaviorSubject<boolean>(window.innerWidth <= 768);
-  isMobile$ = this.isMobileSubject.asObservable();
-
-
-  private updateViewport() {
+  // Mobile viewport update
+  private updateViewport(): void {
     this.isMobileSubject.next(window.innerWidth <= 600);
+  }
+
+  // Filtered count management
+  setFilteredCount(count: number): void {
+    this.filteredCountSubject.next(count);
   }
 }

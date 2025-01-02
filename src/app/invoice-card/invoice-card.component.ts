@@ -8,6 +8,9 @@ import { DataService } from '../shared/data.service';
 import { Invoice } from '../shared/invoice.interface';
 import { HeadlineComponent } from "../headline/headline.component";
 import { TextComponent } from "../text/text.component";
+import { Store } from '@ngrx/store';
+import { loadCardDetails } from '../store/invoice.actions';
+import { selectCardInfo } from '../store/invoice.selectors';
 
 @Component({
   selector: 'app-invoice-card',
@@ -21,7 +24,7 @@ export class InvoiceCardComponent implements OnInit {
   filteredInvoices: Invoice[] = [];  
   currentFilters: string[] = []; 
 
-  constructor(private dataService: DataService, private router: Router) {}
+  constructor(private dataService: DataService, private router: Router,private store: Store) {}
 
   ngOnInit() {
     // Fetch invoice data on component initialization
@@ -37,6 +40,7 @@ export class InvoiceCardComponent implements OnInit {
       // }); // Initially, show all invoices
       
     });
+
   }
 
   // Method to handle filter changes
@@ -57,13 +61,18 @@ export class InvoiceCardComponent implements OnInit {
         this.currentFilters.some(filter => filter === invoice.status) // Match any of the selected filters
       );
     }
+    this.dataService.setFilteredCount(this.filteredInvoices.length);
 
-    console.log('Filtered Invoices:', this.filteredInvoices);
+    console.log('Filtered Invoices:', this.filteredInvoices.length);
   }
 
   // View the card details for a specific invoice
   viewCardDetail(invoice: Invoice): void {
     this.dataService.setSelectedInvoice(invoice);
-    this.router.navigate(['/card-details']);
+    this.router.navigate(['/card-details', invoice.id]);
+    this.store.dispatch(loadCardDetails({cardId: invoice.id}));
+
   }
+
+  
 }

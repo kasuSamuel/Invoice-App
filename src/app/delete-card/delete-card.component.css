@@ -1,0 +1,78 @@
+.container {
+    background-color: #EC5757;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+.dialog{
+height: 100%;
+width: 100%;
+
+}
+
+.dialog-box {
+    background: white;
+    width: 32%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+.text{
+    color: var(--grey-medium);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: -0.25px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cancel-button {
+    background-color: #F9FAFE;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #7E88C3;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cancel-button:hover {
+    background-color: #DFE3FA;
+}
+
+.delete-button {
+    background-color: #EC5757;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.delete-button:hover {
+    background: #FF9797;
+}
+
+@media screen and (max-width: 1031px) {
+    .dialog-box {
+        width: 65%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .dialog-box {
+        width: 75%;
+    }
+}

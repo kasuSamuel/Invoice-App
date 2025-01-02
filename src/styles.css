@@ -110,6 +110,10 @@ body[data-theme="dark"] .container .card-full-details .items-table{
   background-color: #48549F1A;
   
 }
+ body[data-theme="dark"] .container .dialog-box{
+  background-color: #1E2139;
+  
+}
 body[data-theme="dark"] .container .card-full-details .purple{
 color: #DFE3FA;  
 }
@@ -122,7 +126,7 @@ body[data-theme="dark"] .invoice-form-container .invoice .item-list table thead 
   color: var(--white-color);
 }
 
-body[data-theme="dark"] .invoice-form-container .invoice .item-list .add-item {
+body[data-theme="dark"] .invoice-form-container .invoice .item-list .add-item,body[data-theme="dark"] .cancel-button{
   background-color: var(--dark-input-color);
   color: var(--white-color);
 }

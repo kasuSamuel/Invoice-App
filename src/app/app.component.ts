@@ -1,48 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
-import { HeadlineComponent } from './headline/headline.component';
-import { TextComponent } from './text/text.component';
-import { IconComponent } from './icon/icon.component';
-import { AvatarComponent } from './avatar/avatar.component';
-import { BadgeComponent } from './badge/badge.component';
-import { FilterComponent } from './filter/filter.component';
-import { InvoiceCardComponent } from './invoice-card/invoice-card.component';
-import { DialogComponent } from './dialog/dialog.component';
-import { DeleteCardComponent } from './delete-card/delete-card.component';
-import { EmptyPageComponent } from './empty-page/empty-page.component';
-import { InvoiceDetailPageComponent } from './invoice-detail-page/invoice-detail-page.component';
-import { SideNavbarComponent } from "./side-navbar/side-navbar.component";
-import { EmptyInvoicePageComponent } from "./empty-invoice-page/empty-invoice-page.component";
-import { HeaderComponent } from "./header/header.component";
+import { Store } from '@ngrx/store';
+import { loadData } from './store/invoice.actions';
 import { DataService } from './shared/data.service';
-import { CreateInvoiceFullFormPageComponent } from "./create-invoice-full-form-page/create-invoice-full-form-page.component";
-import { HttpClientModule } from '@angular/common/http';
-import { CalenderComponent } from "./calender/calender.component";
+import { SideNavbarComponent } from './side-navbar/side-navbar.component';
+import { CreateInvoiceFullFormPageComponent } from './create-invoice-full-form-page/create-invoice-full-form-page.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
-    ThemeToggleComponent,
-    HeadlineComponent,
-    TextComponent,
-    IconComponent,
-    AvatarComponent,
-    BadgeComponent,
-    FilterComponent,
-    InvoiceCardComponent,
-    DialogComponent,
-    DeleteCardComponent,
-    EmptyPageComponent,
-    InvoiceDetailPageComponent,
-    SideNavbarComponent,
-    EmptyInvoicePageComponent,
-    HeaderComponent,
-    CreateInvoiceFullFormPageComponent,
-    HttpClientModule,
-    CalenderComponent
+SideNavbarComponent,
+CreateInvoiceFullFormPageComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -50,11 +20,12 @@ import { CalenderComponent } from "./calender/calender.component";
 export class AppComponent implements OnInit {
 
   isDarkMode:  boolean = false;
-constructor(private dataService:DataService) {
+constructor(private dataService:DataService, private store:Store) {
 }
 
 ngOnInit(): void {
   this.isDarkMode = this.dataService.getTheme() === 'dark';
+  this.store.dispatch(loadData());
 }
 
 }

@@ -43,8 +43,7 @@ onFilterChange(option: { value: string; checked: boolean }): void {
   this.filtersChanged.emit(this.selectedFilters);
 }
 
-  
-  
+
   // Close dropdown if clicked outside
   @HostListener('document:click', ['$event'])
   closeDropdown(event: MouseEvent) {

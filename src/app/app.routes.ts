@@ -4,7 +4,6 @@ import { InvoiceDetailPageComponent } from './invoice-detail-page/invoice-detail
 
 export const routes: Routes = [
   { path: 'home-page', component: InvoiceCardComponent },
-  { path: 'card-details', component: InvoiceDetailPageComponent },  
+  { path: 'card-details/:id', component: InvoiceDetailPageComponent },  // Use :id as route parameter
   { path: '', redirectTo: '/home-page', pathMatch: 'full' }, // Default route
 ];
-
