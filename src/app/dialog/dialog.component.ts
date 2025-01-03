@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { HeadlineComponent } from '../headline/headline.component';
 import { TextComponent } from '../text/text.component';
 import { ButtonComponent } from '../button/button.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-dialog',

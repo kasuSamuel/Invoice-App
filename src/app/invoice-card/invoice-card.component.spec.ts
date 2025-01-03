@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { InvoiceCardComponent } from './invoice-card.component';
+import { Store, StoreModule } from '@ngrx/store';
+
 
 describe('InvoiceCardComponent', () => {
   let component: InvoiceCardComponent;
@@ -8,7 +9,7 @@ describe('InvoiceCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InvoiceCardComponent]
+      imports: [InvoiceCardComponent,StoreModule.forRoot({})]
     })
     .compileComponents();
     

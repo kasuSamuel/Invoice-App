@@ -11,11 +11,12 @@ import { HeadlineComponent } from "../headline/headline.component";
 import { DialogComponent } from "../dialog/dialog.component";
 import { Store } from '@ngrx/store';
 import { DeleteCardComponent } from "../delete-card/delete-card.component";
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-invoice-detail-page',
   standalone: true,
-  imports: [ButtonComponent, IconComponent, CommonModule, TextComponent, HeadlineComponent, DialogComponent, DeleteCardComponent],
+  imports: [ButtonComponent, IconComponent, CommonModule, TextComponent, HeadlineComponent, DialogComponent, DeleteCardComponent, HttpClientModule,],
   templateUrl: './invoice-detail-page.component.html',
   styleUrl: './invoice-detail-page.component.css'
 })

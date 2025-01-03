@@ -13,6 +13,7 @@ import { CreateInvoiceFullFormPageComponent } from './create-invoice-full-form-p
     RouterOutlet,
 SideNavbarComponent,
 CreateInvoiceFullFormPageComponent
+
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

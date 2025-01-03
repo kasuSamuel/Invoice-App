@@ -5,11 +5,12 @@ import { IconComponent } from "../icon/icon.component";
 import { CommonModule } from '@angular/common';
 import { Invoice } from '../shared/invoice.interface';
 import { DataService } from '../shared/data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-filter',
   standalone: true,
-  imports: [HeadlineComponent, IconComponent, FormsModule, CommonModule], // Include FormsModule
+  imports: [HttpClientModule, HeadlineComponent, IconComponent, FormsModule, CommonModule], // Include FormsModule
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.css']
 })
