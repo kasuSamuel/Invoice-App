@@ -19,6 +19,9 @@ export class CalenderComponent implements OnInit {
   selectedDate: string = '';
   isCalendarHidden: boolean = true;
 
+  // Array to hold the calendar days
+  daysInMonth: number[] = [];
+  
   constructor() {}
 
   ngOnInit(): void {
@@ -26,10 +29,6 @@ export class CalenderComponent implements OnInit {
   }
 
   renderCalendar(): void {
-    const calendarDays = this.calendarDays?.nativeElement;
-    if (!calendarDays) return;
-
-    calendarDays.innerHTML = '';
     const year = this.currentDate.getFullYear();
     const month = this.currentDate.getMonth();
     
@@ -41,23 +40,22 @@ export class CalenderComponent implements OnInit {
     const firstDay = new Date(year, month, 1).getDay();
     const lastDate = new Date(year, month + 1, 0).getDate();
 
+    this.daysInMonth = [];
+
     // Fill empty days before the first day of the month
     for (let i = 0; i < firstDay; i++) {
-      const emptyDay = document.createElement('span');
-      calendarDays.appendChild(emptyDay);
+      this.daysInMonth.push(0);  // Push empty days
     }
 
     // Add days of the current month
     for (let i = 1; i <= lastDate; i++) {
-      const day = document.createElement('span');
-      day.textContent = i.toString();
-      day.classList.add('day');
-      day.addEventListener('click', () => this.selectDay(i, year, month));
-      calendarDays.appendChild(day);
+      this.daysInMonth.push(i);
     }
   }
 
   selectDay(day: number, year: number, month: number): void {
+    if (day === 0) return; // Skip empty days
+
     this.selectedDate = `${day} ${this.currentDate.toLocaleString('default', { month: 'short' })} ${year}`;
 
     // Set the input value

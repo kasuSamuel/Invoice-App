@@ -61,7 +61,7 @@ export class InvoiceDetailPageComponent implements OnInit {
   }
 
   goBack() {
-    this.location.back(); // Go back to the previous page
+    this.location.back(); 
   }
 
   openDialog(): void {

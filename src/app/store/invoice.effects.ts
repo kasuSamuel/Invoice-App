@@ -1,18 +1,13 @@
 import { DataService } from './../shared/data.service';
-// card.effects.ts
 import { Injectable } from '@angular/core';
 import { createEffect,Actions, ofType } from '@ngrx/effects';
-
-import { Store } from '@ngrx/store';
-import { EMPTY, of } from 'rxjs';
+import {  of } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 import { loadData, loadCardDetailsSuccess, loadCardDetailsFailure } from './invoice.actions';
 @Injectable()
 export class CardEffects {
-
     loadCardDetails$ = createEffect(() =>
         this.actions$.pipe(
-          // Listen for the 'loadCardDetails' action
           ofType(loadData),
           mergeMap(() =>
             // Call the service method to fetch data

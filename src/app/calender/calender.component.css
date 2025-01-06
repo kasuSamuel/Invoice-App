@@ -22,8 +22,12 @@
 border: none;   
  background-color: transparent;
     color: black;
-    font-size: 16px;
     cursor: pointer;
+    font-size: 12px;
+font-weight: 700;
+line-height: 15px;
+letter-spacing: -0.25px;
+text-align: left
 
   }
   
@@ -79,20 +83,21 @@ border: none;
   .calendar-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
+    gap: 5px;
+    
   }
   
   .calendar-days span {
     text-align: center;
     padding: 8px 0;
     border-radius: 4px;
-    color: #fff;
+    color: #000;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   
   .calendar-days span:hover {
-    background-color: #6a5acd;
+    color: #7C5DFA;
   }
   
   .calendar-days span.selected {

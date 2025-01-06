@@ -5,16 +5,16 @@ import { CardDetailsState } from './invoice.state';
 export const selectCardState = (state: { card: CardDetailsState }) => state.card;
 
 export const selectCardInfo = createSelector(
-  selectCardState,
-  (state: CardDetailsState) => state.cardInfo
+  (state: { card: CardDetailsState }) => state.card,
+  (card: CardDetailsState) => card.cardInfo
 );
 
 export const selectCardLoading = createSelector(
-  selectCardState,
-  (state: CardDetailsState) => state.loading
+  (state: { card: CardDetailsState }) => state.card,
+  (card: CardDetailsState) => card.loading
 );
 
 export const selectCardError = createSelector(
-  selectCardState,
-  (state: CardDetailsState) => state.error
+  (state: { card: CardDetailsState }) => state.card,
+  (card: CardDetailsState) => card.error
 );

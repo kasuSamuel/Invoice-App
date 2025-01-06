@@ -9,8 +9,9 @@ import { Invoice } from '../shared/invoice.interface';
 import { HeadlineComponent } from "../headline/headline.component";
 import { TextComponent } from "../text/text.component";
 import { Store } from '@ngrx/store';
-import { loadCardDetails } from '../store/invoice.actions';
+import { loadCardDetails, loadData } from '../store/invoice.actions';
 import { selectCardInfo } from '../store/invoice.selectors';
+
 
 @Component({
   selector: 'app-invoice-card',
@@ -24,29 +25,23 @@ export class InvoiceCardComponent implements OnInit {
   filteredInvoices: Invoice[] = [];  
   currentFilters: string[] = []; 
 
-  constructor(private dataService: DataService, private router: Router,private store: Store) {}
+  constructor(private dataService: DataService, private router: Router,private store: Store) {
+
+    this.store.select((state: any) => selectCardInfo(state.card)).subscribe((invoices: Invoice[]) => {
+      this.invoices = invoices;
+    });
+  }
 
   ngOnInit() {
     // Fetch invoice data on component initialization
-    this.dataService.getData().subscribe((response) => {
-      this.invoices = response;
-
-    
-    this.filterInvoices();
-
-
-      // this.filteredInvoices = this.invoices.filter(invoice => {
-      //   return  this.currentFilters.some(filter => filter === invoice.status);
-      // }); // Initially, show all invoices
-      
-    });
+    this.store.dispatch(loadData());
+console.log(this.invoices);
 
   }
 
   // Method to handle filter changes
   onFiltersChanged(selectedFilters: string[]): void {
     this.currentFilters = selectedFilters;
-    console.log('Selected Filters:', this.currentFilters);
     this.filterInvoices();
   }
 
@@ -58,12 +53,11 @@ export class InvoiceCardComponent implements OnInit {
     } else {
       // Filter invoices based on selected filters
       this.filteredInvoices = this.invoices.filter(invoice =>
-        this.currentFilters.some(filter => filter === invoice.status) // Match any of the selected filters
+        this.currentFilters.some(filter => filter === invoice.status) 
       );
     }
     this.dataService.setFilteredCount(this.filteredInvoices.length);
 
-    console.log('Filtered Invoices:', this.filteredInvoices.length);
   }
 
   // View the card details for a specific invoice

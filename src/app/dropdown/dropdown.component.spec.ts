@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmptyPageComponent } from './empty-page.component';
+import { DropdownComponent } from './dropdown.component';
 
-describe('EmptyPageComponent', () => {
-  let component: EmptyPageComponent;
-  let fixture: ComponentFixture<EmptyPageComponent>;
+describe('DropdownComponent', () => {
+  let component: DropdownComponent;
+  let fixture: ComponentFixture<DropdownComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EmptyPageComponent]
+      imports: [DropdownComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(EmptyPageComponent);
+    fixture = TestBed.createComponent(DropdownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

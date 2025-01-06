@@ -6,7 +6,7 @@
   transition: transform 0.3s ease;
   height: 100vh;
 }
-
+ 
 .invoice-form-container.hidden {
   transform: translateX(250px);
 }
@@ -70,6 +70,7 @@ label {
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: var(--purple-text-color);
+  
 }
 
 input,
@@ -82,6 +83,7 @@ select {
   font-size: 0.9rem;
   color: #333;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 
@@ -93,7 +95,8 @@ select {
   background-repeat: no-repeat;
   background-position: 95% center;
   padding: 10px;
-  
+  cursor: pointer;
+ 
 }
 
 input:focus,
@@ -101,6 +104,8 @@ select:focus {
   border-color: #8a2be2;
   outline: none;
   box-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
+  cursor: pointer;
+
 }
 
 
@@ -152,6 +157,12 @@ tr td:nth-child(5):hover {
 .btn-container {
   display: flex;
   justify-content: flex-end;
+}
+
+.holder{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .item-list {
@@ -235,7 +246,6 @@ tr td:nth-child(5):hover {
 
 .lable-holder{
   width: 100%;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
@@ -258,7 +268,9 @@ input[type="number"] {
   display: block;
 }
 
-
+.add-item{
+  background-color: red;
+}
 
 @media screen and (max-width: 1031px) {
   .invoice-form-container{

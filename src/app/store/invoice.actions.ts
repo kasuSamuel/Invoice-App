@@ -10,7 +10,7 @@ export const loadCardDetails = createAction(
 
 export const loadCardDetailsSuccess = createAction(
   '[Card Details Page] Load Card Details Success',
-  props<{ cardInfo: Invoice[] }>()  // The fetched data is an array of Invoice objects
+  props<{ cardInfo: Invoice[] }>()  
 );
 
 export const loadCardDetailsFailure = createAction(
@@ -19,5 +19,7 @@ export const loadCardDetailsFailure = createAction(
 );
 
 
-export const toggleTheme = createAction('[Theme] Toggle Theme');
-export const setTheme = createAction('[Theme] Set Theme', props<{ theme: 'light' | 'dark' }>());
+// export const toggleTheme = createAction('[Theme] Toggle Theme');
+// export const setTheme = createAction('[Theme] Set Theme',
+//    props<{ theme: 'light' | 'dark' }>()
+//   );

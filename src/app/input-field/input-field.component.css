@@ -10,6 +10,16 @@ label {
     color: var(--purple-text-color);
     margin-bottom: 10px;
   }
+  .lable-holder{
+    width: 100%;
+    background-color: red;
+  }
+
+  .holder{
+    width: 100%;
+    display: flex;
+justify-content: space-between;
+  }
   
   input,
   select {
@@ -21,19 +31,10 @@ label {
     font-size: 0.9rem;
     color: #333;
     margin-top: 10px;
+    cursor: pointer;
+
   }
   
-  
-  select {
-    appearance: none; 
-    -webkit-appearance: none; 
-    -moz-appearance: none; 
-    background-image: url('../../assets/images/icon-arrow-down.svg');
-    background-repeat: no-repeat;
-    background-position: 95% center;
-    padding: 10px;
-    
-  }
   
   input:focus,
   select:focus {
@@ -50,9 +51,6 @@ label {
   margin-top: 5px;
 }
 
-.error p {
-  margin: 0;
-}
   
 
 .form-group {
@@ -64,6 +62,7 @@ label {
   font-size: 0.9em;
   display: block;
 }
+
 
 @media screen and (max-width: 600px) {
 

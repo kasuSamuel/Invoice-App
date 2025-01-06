@@ -74,10 +74,23 @@ body[data-theme="dark"] .invoice-form-container{
   background-color: var(--dark-bg);
   color: var(--white-color);
 }
-body[data-theme="dark"] .invoice-form-container input , body[data-theme="dark"] .invoice-form-container select{
+body[data-theme="dark"] .invoice-form-container input , body[data-theme="dark"] .dropdown-container ul li{
   background-color: var(--dark-input-color);
   color: var(--white-color);
   border-color: var(--dark-input-color);
+}
+
+ body[data-theme="dark"] .dropdown-container ul {
+  background-color: #141625;
+
+}
+ body[data-theme="dark"] .dropdown-container ul li{
+  background-color: var(--dark-input-color);
+  color: var(--white-color);
+  background: #1E2139 ;
+}
+ body[data-theme="dark"] .dropdown-container .dropdown-title{
+  color: #DFE3FA;
 }
 body[data-theme="dark"] .invoice-card-container .card{
   background-color: var(--dark-input-color);
@@ -130,14 +143,18 @@ body[data-theme="dark"] .invoice-form-container .invoice .item-list .add-item,bo
   background-color: var(--dark-input-color);
   color: var(--white-color);
 }
-body[data-theme="dark"] .date-picker-container .input-wrapper{
+body[data-theme="dark"] .date-picker-container .input-wrapper,body[data-theme="dark"] .dropdown-container .dropdown-selected{
   background-color: var(--dark-input-color);
   color: var(--white-color);
   border: none;
 }
+
 body[data-theme="dark"] .date-picker-container .calendar, body[data-theme="dark"] .filter-container .filter-dropdown{
   background-color: var(--dark-input-color);
-
+  color: var(--white-color);
+}
+body[data-theme="dark"] .date-picker-container .calendar span {
+  color: var(--white-color);
 }
 
 body[data-theme="dark"] .filter-container .filter-dropdown span {
@@ -208,10 +225,14 @@ body[data-theme="dark"] .container .container-detials tbody .invoice-amount-id{
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
 }
 
 .add-item:hover {
   background-color: var(--grey-light);
+  transform: none !important;;
+
 }
 
 .btn {
@@ -230,7 +251,8 @@ body[data-theme="dark"] .container .container-detials tbody .invoice-amount-id{
 }
 
 .btn:hover {
-  transform: scale(1.1);}
+  transform: scale(1.1);
+}
 
 .btn-secondary {
   background: var(--white-grey-color);

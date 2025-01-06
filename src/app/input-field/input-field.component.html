@@ -1,21 +1,11 @@
-<form [formGroup]="formGroup!">
-    <div class="label-holder">
-        <label [for]="controlName">{{ label || 'Input' }}</label>
 
-        <div *ngIf="
-        formGroup?.get(controlName)?.invalid &&
-        (formGroup?.get(controlName)?.touched || formGroup?.get(controlName)?.dirty)
-      ">
-            <small class="error" *ngIf="formGroup?.get(controlName)?.hasError('required')">
-                required.
-            </small>
+    <div class="label-holder">
+        <div class="holder">
+<label>{{ label }}</label>
+<div class="error" *ngIf="control.touched && control.hasError('required')">required.</div>
         </div>
+
+<input [formControl]="control" type="text" />
     </div>
 
-    <input [formControlName]="controlName" [type]="type" [id]="controlName" [placeholder]="label || 'Enter value'">
-</form>
 
-    <!-- <form [formGroup]="form">
-        <app-input-field [label]="'Username'" [formGroup]="form" [controlName]="'username'"
-            [type]="'text'"></app-input-field>
-    </form> -->

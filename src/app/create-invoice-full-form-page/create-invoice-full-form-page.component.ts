@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HeadlineComponent } from "../headline/headline.component";
 import { ButtonComponent } from "../button/button.component";
 import { DataService } from '../shared/data.service';
 import { CommonModule } from '@angular/common';
@@ -8,31 +7,30 @@ import { InputFieldComponent } from "../input-field/input-field.component";
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule, FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {  FormControl } from '@angular/forms';
+import { DropdownComponent } from "../dropdown/dropdown.component";
+
 
 
 @Component({
   selector: 'app-create-invoice-full-form-page',
   standalone: true,
-  imports: [ReactiveFormsModule, HeadlineComponent, ButtonComponent, CommonModule, CalenderComponent, InputFieldComponent, FormsModule,HttpClientModule,],
+  imports: [ReactiveFormsModule, ButtonComponent, CommonModule, CalenderComponent, InputFieldComponent, FormsModule, HttpClientModule, DropdownComponent],
   templateUrl: './create-invoice-full-form-page.component.html',
   styleUrls: ['./create-invoice-full-form-page.component.css']
 })
 export class CreateInvoiceFullFormPageComponent implements OnInit {
-
-  invoiceForm: FormGroup = this.fb.group({});  // Initialize here
-
-  constructor(private dataService: DataService, private fb: FormBuilder) { }
-
+  invoiceForm: FormGroup = this.fb.group({});
   sidebarVisible: boolean = false;
 
+  constructor(private dataService: DataService, private fb: FormBuilder) {}
+
   ngOnInit(): void {
-    // Initialize theme and sidebar visibility from the service
     this.dataService.initTheme();
     this.dataService.sidebarVisibility$.subscribe((visible) => {
       this.sidebarVisible = visible;
     });
 
-    // Initialize the form
     this.invoiceForm = this.fb.group({
       billFrom: this.fb.group({
         streetAddress: ['', Validators.required],
@@ -50,17 +48,15 @@ export class CreateInvoiceFullFormPageComponent implements OnInit {
       }),
       paymentTerms: ['Select', Validators.required],
       projectDescription: ['', Validators.required],
-      items: this.fb.array([])  // Dynamic array for items
+      items: this.fb.array([]),
     });
   }
 
-  // Getter for the items FormArray
-  get items() {
-    return (this.invoiceForm.get('items') as FormArray);
+  get items(): FormArray {
+    return this.invoiceForm.get('items') as FormArray;
   }
 
-  // Method to add a new item to the items array
-  addItem() {
+  addItem(): void {
     const itemForm = this.fb.group({
       itemName: ['', Validators.required],
       quantity: ['', [Validators.required, Validators.min(1)]],
@@ -69,17 +65,29 @@ export class CreateInvoiceFullFormPageComponent implements OnInit {
     this.items.push(itemForm);
   }
 
-  // Method to remove an item from the items array
-  removeItem(index: number) {
+  removeItem(index: number): void {
     this.items.removeAt(index);
   }
 
-  // Form submission handler
-  onSubmit() {
+  onSubmit(): void {
     if (this.invoiceForm.valid) {
-      console.log(this.invoiceForm.value);  // Log form data or send to a service
+      console.log(this.invoiceForm.value);
     } else {
       console.log('Form is invalid');
     }
   }
+
+  getControl(controlPath: string): FormControl {
+    const control = this.invoiceForm.get(controlPath);
+    if (!control) {
+      throw new Error(`Control with path '${controlPath}' not found.`);
+    }
+    return control as FormControl;
+  }
+
+  discardChanges(): void {
+    location.reload();
+this.invoiceForm.reset();
+  }
 }
+

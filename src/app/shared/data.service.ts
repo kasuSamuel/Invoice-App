@@ -105,5 +105,5 @@ export class DataService {
   // Filtered count management
   setFilteredCount(count: number): void {
     this.filteredCountSubject.next(count);
-  }
+  }  
 }
