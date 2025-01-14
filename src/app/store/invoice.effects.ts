@@ -1,28 +1,28 @@
-import { DataService } from './../shared/data.service';
 import { Injectable } from '@angular/core';
-import { createEffect,Actions, ofType } from '@ngrx/effects';
-import {  of } from 'rxjs';
-import { map, mergeMap, catchError } from 'rxjs/operators';
-import { loadData, loadCardDetailsSuccess, loadCardDetailsFailure } from './invoice.actions';
+import { createEffect, Actions, ofType } from '@ngrx/effects';
+import { loadData, loadDataSuccess, loadDataFailure } from './invoice.actions';
+import { HttpClient } from '@angular/common/http';
+import { Invoice } from '../shared/invoice.interface';
+import { switchMap, map, catchError } from 'rxjs/operators'; 
+import { of } from 'rxjs';  
+
+
 @Injectable()
 export class CardEffects {
-    loadCardDetails$ = createEffect(() =>
-        this.actions$.pipe(
-          ofType(loadData),
-          mergeMap(() =>
-            // Call the service method to fetch data
-            this.dataService.getData().pipe(
-              // On success, dispatch 'loadCardDetailsSuccess' with the fetched data
-              map((cardInfo) => loadCardDetailsSuccess({ cardInfo })),
-              // On error, dispatch 'loadCardDetailsFailure' with the error message
-              catchError((error) => of(loadCardDetailsFailure({ error: error.message })))
-            )
-          )
+  loadData$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loadData),
+      switchMap(() =>
+        this.http.get<Invoice[]>('../../assets/data.json').pipe(
+          map((invoices) => loadDataSuccess({ invoices })),
+          catchError((error) => of(loadDataFailure({ error: error.message })))
         )
-      );
-
+      )
+    )
+  );
   constructor(
     private actions$: Actions,
-    private dataService: DataService
+    private http: HttpClient,
+
   ) {}
 }

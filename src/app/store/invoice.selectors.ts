@@ -1,20 +1,33 @@
 // card.selectors.ts
-import { createSelector } from '@ngrx/store';
-import { CardDetailsState } from './invoice.state';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { AppState} from './invoice.state';
 
-export const selectCardState = (state: { card: CardDetailsState }) => state.card;
 
-export const selectCardInfo = createSelector(
-  (state: { card: CardDetailsState }) => state.card,
-  (card: CardDetailsState) => card.cardInfo
+export const selectCardState = createFeatureSelector<AppState>('invoice');
+
+export const selectInvoices = createSelector(
+  selectCardState,
+  (state) => state.invoices
 );
-
 export const selectCardLoading = createSelector(
-  (state: { card: CardDetailsState }) => state.card,
-  (card: CardDetailsState) => card.loading
+  selectCardState,
+  (state) => state.loading
 );
 
 export const selectCardError = createSelector(
-  (state: { card: CardDetailsState }) => state.card,
-  (card: CardDetailsState) => card.error
+  selectCardState,
+  (state) => state.error
 );
+
+export const selectFilteredInvoices = createSelector(
+  selectCardState,
+  (state) => state.filteredInvoices
+);
+
+export const selectFilteredInvoicesCount = createSelector(
+  selectCardState,
+  (state) => state.filteredInvoices.length
+);
+
+
+

@@ -1,6 +1,5 @@
 import { ApplicationConfig, isDevMode } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { provideStore } from '@ngrx/store';
@@ -11,5 +10,12 @@ import { CardEffects } from './store/invoice.effects';
 import { ReactiveFormsModule } from '@angular/forms';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideHttpClient(), provideStore({invoices: cardReducer}), provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }), provideEffects([CardEffects]),ReactiveFormsModule]
+  providers: [
+    provideRouter(routes),
+    provideHttpClient(),
+    provideStore({ invoice: cardReducer }),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode(), autoPause: true}),
+    provideEffects([CardEffects]),
+    ReactiveFormsModule,
+  ],
 };
