@@ -10,11 +10,12 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
+import { IconComponent } from "../icon/icon.component";
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [ReactiveFormsModule, InputFieldComponent, ButtonComponent],
+  imports: [ReactiveFormsModule, InputFieldComponent, ButtonComponent, IconComponent],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css',
 })

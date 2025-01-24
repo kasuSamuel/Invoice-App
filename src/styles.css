@@ -371,6 +371,11 @@ body[data-theme="dark"] .container .container-detials tbody .invoice-amount-id {
   transition: all 0.3s ease-in-out;
   margin-left: 10%;
   }
+
+
+  main .text h2{
+    text-align: center;
+  }
   
   
  

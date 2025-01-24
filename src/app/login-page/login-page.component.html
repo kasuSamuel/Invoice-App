@@ -1,22 +1,18 @@
 <div class="body">
-    <div class="login-container">
-        <div class="left-section">
-            <div class="logo">
-                <img src="../../assets/images/logo.svg" alt="NSOC Logo">
-                <h1>Invoice Web App</h1>
-            </div>
+    <div class="container">
+        <div class="login-section">
+            <h1>Login</h1>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+                <app-input-field type="email" label="Email" [control]="getControl('username')"></app-input-field>
+
+                <app-input-field type="password" label="Password" [control]="getControl('password')"></app-input-field>
+                <br>
+
+                <app-button customClass="login-btn" label="Sign In" type="submit"></app-button>
+            </form>
         </div>
-        <div class="right-section">
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
-    <app-input-field type="email" label="Email" [control]="getControl('username')"></app-input-field>
-
-    <app-input-field type="password" label="Password" [control]="getControl('password')"></app-input-field>
-
-    <app-button          customClass="signin"
- label="Sign In" type="submit"></app-button>
-</form>
-
+        <div class="info-section">
+            <app-icon [src]="'assets/images/login.svg'"></app-icon>
         </div>
     </div>
 </div>
-

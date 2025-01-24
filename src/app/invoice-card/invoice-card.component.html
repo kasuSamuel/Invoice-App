@@ -1,8 +1,8 @@
 <app-header></app-header>
 <div  class="invoice-card-container">
+  @for (invoice of invoices(); track $index) {
 <div
   class="card"
-  *ngFor="let invoice of  invoices()"
   (click)="viewCardDetail(invoice)"
 >
   <div class="card-header-id">
@@ -43,6 +43,7 @@
     <app-icon [src]="'assets/images/icon-arrow-right.svg'"></app-icon>
   </div>
 </div>
+  }
+  @empty{ <app-empty-invoice-page></app-empty-invoice-page>}
 </div> 
-
 

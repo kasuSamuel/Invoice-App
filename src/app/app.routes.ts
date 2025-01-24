@@ -7,6 +7,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 export const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'home-page', component: InvoiceCardComponent },
+  
   { path: 'card-details/:id', component: InvoiceDetailPageComponent },  // Use :id as route parameter
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Default route
 ];

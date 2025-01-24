@@ -13,16 +13,20 @@ import { loadCardDetails, loadData } from '../store/invoice.actions';
 import { selectCardLoading , selectCardError, selectInvoices, selectFilteredInvoices} from '../store/invoice.selectors';
 import { AppState } from '../store/invoice.state';
 import { map, Observable } from 'rxjs';
+import { EmptyInvoicePageComponent } from "../empty-invoice-page/empty-invoice-page.component";
 
 @Component({
   selector: 'app-invoice-card',
   standalone: true,
-  imports: [HttpClientModule, CommonModule, IconComponent, HeaderComponent, HeadlineComponent, TextComponent],
+  imports: [HttpClientModule, CommonModule, IconComponent, HeaderComponent, HeadlineComponent, TextComponent, EmptyInvoicePageComponent],
   templateUrl: './invoice-card.component.html',
   styleUrls: ['./invoice-card.component.css']
 })
 export class InvoiceCardComponent implements OnInit {
   invoices = this.store.selectSignal(selectFilteredInvoices);
+  get hasInvoices(): boolean {
+    return this.invoices && this.invoices.length > 0;
+  }
 
 
   constructor(private dataService: DataService, private router: Router,private store: Store<AppState>) {
