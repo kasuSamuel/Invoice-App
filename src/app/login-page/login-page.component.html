@@ -1,5 +1,4 @@
 <div class="body">
-
     <div class="login-container">
         <div class="left-section">
             <div class="logo">
@@ -8,14 +7,16 @@
             </div>
         </div>
         <div class="right-section">
-            <form class="login-form">
-                <label for="email">Your email</label>
-                <input type="email" id="email" placeholder="Enter your email" required>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+    <app-input-field type="email" label="Email" [control]="getControl('username')"></app-input-field>
 
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter your password" required>
-                <button type="submit">Sign In</button>
-            </form>
+    <app-input-field type="password" label="Password" [control]="getControl('password')"></app-input-field>
+
+    <app-button          customClass="signin"
+ label="Sign In" type="submit"></app-button>
+</form>
+
         </div>
     </div>
 </div>
+

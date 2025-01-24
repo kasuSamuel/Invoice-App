@@ -21,8 +21,7 @@ label {
 justify-content: space-between;
   }
   
-  input,
-  select {
+  input{
     width: 100%;
     padding: 8px 12px;
     margin-bottom: 10px;
@@ -33,17 +32,17 @@ justify-content: space-between;
     margin-top: 10px;
     cursor: pointer;
 
+    cursor: text;
   }
   
   
-  input:focus,
-  select:focus {
+  input:focus{
     border-color: #8a2be2;
     outline: none;
     box-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
   }
 
-
+  
   /* Style for error messages */
 .error {
   color: red;

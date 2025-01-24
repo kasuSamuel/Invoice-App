@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { InvoiceCardComponent } from './invoice-card/invoice-card.component';
-import { AuthGuard } from './auth.guard';
 
 import { InvoiceDetailPageComponent } from './invoice-detail-page/invoice-detail-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';

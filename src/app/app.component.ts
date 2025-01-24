@@ -14,7 +14,6 @@ import { LoginPageComponent } from './login-page/login-page.component';
     RouterOutlet,
     SideNavbarComponent,
     CreateInvoiceFullFormPageComponent,
-    LoginPageComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

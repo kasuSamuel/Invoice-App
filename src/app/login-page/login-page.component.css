@@ -5,16 +5,14 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    z-index: 9;
 }
 
 .login-container {
     display: flex;
-    width: 900px;
-    height: 500px;
+    width: 60%;
+    height: 60%;
     background-color: white;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(24, 134, 207, 0.3), 0 12px 24px rgba(24, 134, 207, 0.2);
 }
 
 .left-section {
@@ -26,6 +24,7 @@
     align-items: center;
     padding: 20px;
     position: relative;
+
 }
 
 /* .left-section:before {
@@ -39,10 +38,6 @@
     background: #014ba0;
 } */
 
-.remember {
-    display: flex;
-    align-items: center;
-}
 
 
 
@@ -66,7 +61,7 @@
 
 .right-section {
     width: 50%;
-    background-color: #014ba0;
+    background-color: #215897;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,42 +97,4 @@
     outline: none;
     border: 2px solid #0056d2;
     background-color: #f4f7fc;
-}
-
-.remember-me {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    margin-bottom: 20px;
-}
-
-.remember-me label {
-    color: white;
-}
-
-.remember-me .forgot-password {
-    color: #b3d4fc;
-    text-decoration: none;
-}
-
-.remember-me .forgot-password:hover {
-    text-decoration: underline;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #ffffff;
-    color: #014ba0;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 3rem;
-}
-
-button:hover {
-    background-color: #d6e4ff;
 }

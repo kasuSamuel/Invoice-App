@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { loadData, loadDataSuccess, loadDataFailure } from './invoice.actions';
 import { HttpClient } from '@angular/common/http';
-import { Invoice } from '../shared/invoice.interface';
 import { switchMap, map, catchError } from 'rxjs/operators'; 
 import { of } from 'rxjs';  
+import { AuthService } from '../AuthService/auth.service';
 
 
 @Injectable()
@@ -13,7 +13,7 @@ export class CardEffects {
     this.actions$.pipe(
       ofType(loadData),
       switchMap(() =>
-        this.http.get<Invoice[]>('../../assets/data.json').pipe(
+        this.authService.getInvoice().pipe(
           map((invoices) => loadDataSuccess({ invoices })),
           catchError((error) => of(loadDataFailure({ error: error.message })))
         )
@@ -23,6 +23,7 @@ export class CardEffects {
   constructor(
     private actions$: Actions,
     private http: HttpClient,
+    private authService: AuthService,
 
   ) {}
 }
