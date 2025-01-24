@@ -1,3 +1,104 @@
 <div *ngIf="sidebarVisible" class="invoice-form-container">
+    <form [formGroup]="invoiceForm" class="invoice" (ngSubmit)="onSubmit()">
+        <h1 class="form-title">New Invoice</h1>
 
+        <!-- Bill From Section -->
+        <div class="form-section" formGroupName="billFrom">
+            <h2 class="section-title">Bill From</h2>
+            <div class="label-holder">
+                <app-input-field label="Street Address" [control]="getControl('billFrom.streetAddress')">
+                </app-input-field>
+            </div>
+            <div class="grid-container">
+                <div class="label-holder">
+                    <app-input-field label="City" [control]="getControl('billFrom.city')"></app-input-field>
+                </div>
+                <div class="label-holder">
+                    <app-input-field label="Post Code" [control]="getControl('billFrom.postcode')"></app-input-field>
+                </div>
+                <div class="label-holder">
+                    <app-input-field label="Country" [control]="getControl('billFrom.country')"></app-input-field>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bill To Section -->
+        <div class="form-section" formGroupName="billTo">
+            <h2 class="section-title">Bill To</h2>
+            <div class="label-holder">
+                <app-input-field label="Client's Name" [control]="getControl('billTo.clientName')"></app-input-field>
+            </div>
+            <div class="label-holder">
+                <app-input-field label="Client's Email" [control]="getControl('billTo.clientEmail')"></app-input-field>
+            </div>
+            <div class="label-holder">
+                <app-input-field label="Street Address"
+                    [control]="getControl('billTo.clientAddress')"></app-input-field>
+            </div>
+            <div class="grid-container">
+                <div class="label-holder">
+                    <app-input-field label="City" [control]="getControl('billTo.billToCity')"></app-input-field>
+                </div>
+                <div class="label-holder">
+                    <app-input-field label="Post Code"
+                        [control]="getControl('billTo.billToPostcode')"></app-input-field>
+                </div>
+                <div class="label-holder">
+                    <app-input-field label="Country" [control]="getControl('billTo.billToCountry')"></app-input-field>
+                </div>
+            </div>
+        </div>
+
+        <!-- Invoice Details -->
+        <div class="form-section-grid">
+            <app-calender></app-calender>
+            <app-dropdown></app-dropdown>
+        </div>
+
+        <!-- Project Description -->
+        <div class="form-section">
+            <div class="label-holder">
+                <app-input-field label="Project Description"
+                    [control]="getControl('projectDescription')"></app-input-field>
+            </div>
+        </div>
+
+        <!-- Item List -->
+        <div class="item-list">
+            <h3>Item List</h3>
+            <table class="item-table">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Qty.</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of items.controls; let i = index" [formGroupName]="i">
+                        <td><input formControlName="itemName" /></td>
+                        <td><input formControlName="quantity" type="number" /></td>
+                        <td><input formControlName="price" type="number" /></td>
+                        <td>{{ item.value.quantity * item.value.price | currency }}</td>
+                        <td>
+                            <img src="../../assets/images/icon-delete.svg" (click)="removeItem(i)" alt="Delete" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <app-button (click)="addItem()" label="Add New Item" icon="+" customClass="add-item"></app-button>
+        </div>
+
+        <!-- Form Actions -->
+
+             <div class="form-actions">
+            <app-button (click)="discardChanges()" label="Discard" customClass="btn btn-secondary"></app-button>
+            <div class="btn-container">
+                <app-button label="Save as Draft" customClass="btn btn-primary"></app-button>
+                <app-button label="Save & Send" customClass="btn btn-highlight"></app-button>
+            </div>
+            </div>
+    </form>
 </div>

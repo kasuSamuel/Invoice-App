@@ -1,5 +1,5 @@
 <div class="container" *ngIf="selectedInvoice">
-  <div class="container-detials" >
+  <div class="container-detials">
     <button class="goBack" (click)="goBack()">
       <app-icon [src]="'assets/images/icon-arrow-left.svg'"></app-icon>
       <p>Go Back</p>
@@ -15,14 +15,16 @@
             pending: selectedInvoice.status === 'pending',
             draft: selectedInvoice.status === 'draft'
           }"
-          >
-
-              {{ selectedInvoice.status }}
-          </div
         >
+          {{ selectedInvoice.status }}
+        </div>
       </div>
       <div id="action-buttons" class="action-buttons">
-        <app-button label="Edit" customClass="action-button edit"></app-button>
+        <app-button
+          label="Edit"
+          (click)="toggleSidebar()"
+          customClass="action-button edit"
+        ></app-button>
         <app-button
           label="Delete"
           customClass="action-button delete"
@@ -30,7 +32,12 @@
         ></app-button>
         <app-button
           label="Mark as Paid"
+          (click)="markAsPaid()"
           customClass="action-button paid"
+          [disabled]="
+            selectedInvoice.status === 'paid' ||
+            selectedInvoice.status === 'draft'
+          "
         ></app-button>
       </div>
     </div>
@@ -198,7 +205,14 @@
                   [text]="item.name"
                   class="invoice-id"
                 ></app-headline>
-                <td> <app-headline [level]="7" [number]="item.quantity" class="invoice-amount-id"></app-headline>
+              </td>
+
+              <td>
+                <app-headline
+                  [level]="7"
+                  [number]="item.quantity"
+                  class="invoice-amount-id"
+                ></app-headline>
               </td>
 
               <td>
@@ -224,16 +238,30 @@
         <h1>£ {{ selectedInvoice.total }}</h1>
       </div>
     </div>
-
-
   </div>
-      <div class="card-footer">
-          <div class="action-buttons">
-              <app-button label="Edit" customClass="action-button edit"></app-button>
-              <app-button label="Delete" (click)="openDialog()" customClass="action-button delete"></app-button>
-              <app-button label="Mark as Paid" customClass="action-button paid"></app-button>
-          </div>
-      </div>
+  <div class="card-footer">
+    <div class="action-buttons">
+      <app-button
+        label="Edit"
+        (click)="toggleSidebar()"
+        customClass="action-button edit"
+      ></app-button>
+      <app-button
+        label="Delete"
+        (click)="openDialog()"
+        customClass="action-button delete"
+      ></app-button>
+      <app-button
+        label="Mark as Paid"
+        customClass="action-button paid"
+        [disabled]="
+          selectedInvoice.status === 'paid' ||
+          selectedInvoice.status === 'draft'
+        "
+      >
+      </app-button>
+    </div>
+  </div>
 
-<app-dialog class="dialog" *ngIf="showDialog"></app-dialog>
+  <app-dialog class="dialog" *ngIf="showDialog"></app-dialog>
 </div>

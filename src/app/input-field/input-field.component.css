@@ -10,9 +10,18 @@ label {
     color: var(--purple-text-color);
     margin-bottom: 10px;
   }
+  .lable-holder{
+    width: 100%;
+    background-color: red;
+  }
+
+  .holder{
+    width: 100%;
+    display: flex;
+justify-content: space-between;
+  }
   
-  input,
-  select {
+  input{
     width: 100%;
     padding: 8px 12px;
     margin-bottom: 10px;
@@ -21,28 +30,19 @@ label {
     font-size: 0.9rem;
     color: #333;
     margin-top: 10px;
+    cursor: pointer;
+
+    cursor: text;
   }
   
   
-  select {
-    appearance: none; 
-    -webkit-appearance: none; 
-    -moz-appearance: none; 
-    background-image: url('../../assets/images/icon-arrow-down.svg');
-    background-repeat: no-repeat;
-    background-position: 95% center;
-    padding: 10px;
-    
-  }
-  
-  input:focus,
-  select:focus {
+  input:focus{
     border-color: #8a2be2;
     outline: none;
     box-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
   }
 
-
+  
   /* Style for error messages */
 .error {
   color: red;
@@ -50,9 +50,6 @@ label {
   margin-top: 5px;
 }
 
-.error p {
-  margin: 0;
-}
   
 
 .form-group {
@@ -64,6 +61,7 @@ label {
   font-size: 0.9em;
   display: block;
 }
+
 
 @media screen and (max-width: 600px) {
 

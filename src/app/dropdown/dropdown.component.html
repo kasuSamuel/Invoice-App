@@ -1,0 +1,13 @@
+<div class="dropdown-container">
+    <app-text [level]="2" [text]="'Payment Terms'" class="dropdown-title"></app-text>
+    <div class="dropdown-selected" (click)="toggleDropdown()">
+        <span>{{ selectedOption }}</span>
+        <app-icon [src]="'assets/images/icon-arrow-down.svg'"></app-icon>
+    </div>
+
+    <ul class="dropdown-options" *ngIf="dropdownOpen">
+        <li *ngFor="let option of options" class="dropdown-option" (click)="selectOption(option)">
+            {{ option }}
+        </li>
+    </ul>
+</div>

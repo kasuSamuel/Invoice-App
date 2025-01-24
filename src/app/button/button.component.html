@@ -1,4 +1,4 @@
-<button [ngClass]="[customClass, 'btn']" >
+<button [ngClass]="[customClass, 'btn'] " [disabled]="disabled" >
     <div *ngIf="icon" class="icon">{{ icon }}</div> 
     {{ label }}
 </button>

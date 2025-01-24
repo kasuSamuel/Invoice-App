@@ -13,6 +13,7 @@ export class ButtonComponent {
   @Input() label: string = ''; 
   @Input() icon: string = '';        
   @Input() customClass: string = ''; 
+  @Input() disabled: boolean = false;
 
 
 }

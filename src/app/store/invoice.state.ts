@@ -1,24 +1,19 @@
-// card.state.ts
-export interface CardDetailsState {
-    cardId: string | null;  // Store the card ID
-    cardInfo: any | null;   // Store the detailed card information
-    loading: boolean;       // To track loading state
-    error: string | null;   // To track error messages
-  }
-  
-  export const initialCardState: CardDetailsState = {
-    cardId: null,
-    cardInfo: null,
-    loading: false,
-    error: null
-  };
-  
+import { Invoice } from '../shared/invoice.interface';
 
-  // theme.state.ts
-export interface ThemeState {
-  theme: 'light' | 'dark';
+export interface AppState {
+  cardId: string | null;
+  invoices: Invoice[];
+  loading: boolean;
+  error: string | null;
+  filteredInvoices: Invoice[];
+  invoiceStatuses: string[];
 }
 
-export const initialThemeState: ThemeState = {
-  theme: 'light',
+export const initialCardState: AppState = {
+  cardId: null,
+  invoices: [],
+  loading: false,
+  error: null,
+  filteredInvoices: [],
+  invoiceStatuses: [],
 };

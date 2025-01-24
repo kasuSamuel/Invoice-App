@@ -101,9 +101,4 @@ export class DataService {
   private updateViewport(): void {
     this.isMobileSubject.next(window.innerWidth <= 600);
   }
-
-  // Filtered count management
-  setFilteredCount(count: number): void {
-    this.filteredCountSubject.next(count);
-  }
 }

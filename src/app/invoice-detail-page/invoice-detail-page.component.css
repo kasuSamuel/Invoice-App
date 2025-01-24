@@ -262,12 +262,10 @@ text-decoration-skip-ink: none;
   
   @media screen and (max-width: 1031px) {
     .container {
-        margin-top: 7rem;
 
       }
     .container-detials{
         width: 90%;
-
     }
 }
 
@@ -277,7 +275,7 @@ text-decoration-skip-ink: none;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-top: 15rem;
+        margin-top: 13rem;
       }
     .dates-and-billing {
           width: 100%;

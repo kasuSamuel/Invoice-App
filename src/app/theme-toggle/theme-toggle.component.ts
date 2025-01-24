@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './theme-toggle.component.html',
   styleUrls: ['./theme-toggle.component.css'],
   standalone: true,
-  imports: [IconComponent, CommonModule],
+  imports: [IconComponent, CommonModule,HttpClientModule,],
 })
 export class ThemeToggleComponent implements OnInit {
   isDarkMode: boolean = false;
